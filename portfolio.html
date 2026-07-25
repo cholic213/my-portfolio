@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#0B0E13;color:#CDD5DE;font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+a{color:inherit;text-decoration:none}
+a:hover{color:#F3F6F9}
+strong{font-weight:600;color:#F3F6F9}
+::selection{background:rgba(91,157,249,.28);color:#F3F6F9}
+:focus-visible{outline:1.5px solid #5B9DF9;outline-offset:3px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+</style>
+</helmet>
+
+<div style="max-width:1080px;margin:0 auto;padding:0 32px">
+
+<nav style="display:flex;align-items:center;justify-content:space-between;height:74px;border-bottom:1px solid #1C222B">
+  <button onClick="{{ goHome }}" style="display:flex;align-items:baseline;gap:10px">
+    <span style="font-size:15px;font-weight:600;letter-spacing:-.01em;color:#F3F6F9">[YOUR NAME]</span>
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#7B8492;letter-spacing:.02em">{{ t.tagline }}</span>
+  </button>
+  <div style="display:flex;align-items:center;gap:28px">
+    <a href="/" style="display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.02em;color:#7B8492" style-hover="color:#F3F6F9"><span style="flex:none">←</span>main site</a>
+    <button onClick="{{ goProjects }}" style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.02em;color:{{ navWork }}">{{ t.navWork }}</button>
+    <button onClick="{{ goAbout }}" style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.02em;color:{{ navAbout }}">{{ t.navAbout }}</button>
+    <a href="#contact" style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.02em;color:#7B8492" style-hover="color:#F3F6F9">{{ t.navContact }}</a>
+    <span style="display:flex;align-items:center;gap:1px;border:1px solid #1C222B;border-radius:3px;overflow:hidden">
+      <button onClick="{{ setEn }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;padding:5px 9px;color:{{ enInk }};background:{{ enBg }}">EN</button>
+      <button onClick="{{ setVi }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;padding:5px 9px;color:{{ viInk }};background:{{ viBg }}">VI</button>
+    </span>
+    <a href="#" style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#5B9DF9;border:1px solid #263447;border-radius:3px;padding:8px 13px;transition:border-color .18s,background .18s" style-hover="border-color:#5B9DF9;background:rgba(91,157,249,.07);color:#5B9DF9">{{ t.resume }}</a>
+  </div>
+</nav>
+
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<header style="padding:clamp(3.5rem,9vw,6.5rem) 0 0">
+  <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#7B8492">{{ t.eyebrow }}</span>
+  <h1 style="font-size:clamp(2.5rem,6.2vw,4rem);font-weight:600;letter-spacing:-.028em;line-height:1.05;color:#F3F6F9;margin:20px 0 22px">[YOUR NAME]</h1>
+  <p style="max-width:660px;font-size:clamp(1.08rem,2.1vw,1.28rem);line-height:1.55;color:#CDD5DE">{{ t.statement }}</p>
+  <div style="display:flex;flex-wrap:wrap;gap:0;margin-top:44px;border-top:1px solid #1C222B;border-bottom:1px solid #1C222B">
+    <div style="flex:1 1 200px;padding:18px 22px 18px 0;border-right:1px solid #1C222B">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#7B8492;margin-bottom:7px">{{ t.f1k }}</div>
+      <div style="font-size:15px;color:#F3F6F9">{{ t.f1v }}</div>
+    </div>
+    <div style="flex:1 1 200px;padding:18px 22px;border-right:1px solid #1C222B">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#7B8492;margin-bottom:7px">{{ t.f2k }}</div>
+      <div style="font-size:15px;color:#F3F6F9">{{ t.f2v }}</div>
+    </div>
+    <div style="flex:1 1 200px;padding:18px 0 18px 22px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#7B8492;margin-bottom:7px">{{ t.f3k }}</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:15px;color:#F3F6F9"><i style="width:6px;height:6px;border-radius:50%;background:#3FBF9A;flex:none"></i>{{ t.f3v }}</div>
+    </div>
+  </div>
+</header>
+
+<section style="padding:clamp(3.5rem,7vw,5.5rem) 0 0">
+  <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:34px">
+    <div>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#7B8492">{{ t.workEyebrow }}</span>
+      <h2 style="font-size:clamp(1.4rem,3vw,1.75rem);font-weight:600;letter-spacing:-.018em;color:#F3F6F9;margin-top:12px">{{ t.workTitle }}</h2>
+    </div>
+    <button onClick="{{ goProjects }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5B9DF9;letter-spacing:.04em;white-space:nowrap">{{ t.allWork }} →</button>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px">
+    <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
+      <article style="border:1px solid #1C222B;border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:14px;background:#0E1218;transition:border-color .18s" style-hover="border-color:#263447">
+        <div style="height:112px;border:1px dashed #242C37;border-radius:3px;display:grid;place-items:center;background:repeating-linear-gradient(45deg,#0F141B,#0F141B 5px,#111720 5px,#111720 10px)">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5A6472;letter-spacing:.04em">{{ p.slot }}</span>
+        </div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#7B8492">{{ p.kind }}</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5A6472">{{ p.meta }}</span>
+        </div>
+        <h3 style="font-size:1.06rem;font-weight:600;color:#F3F6F9;letter-spacing:-.012em;line-height:1.35">{{ p.title }}</h3>
+        <p style="font-size:.95rem;line-height:1.6;color:#98A1AE">{{ p.blurb }}</p>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:auto">
+          <sc-for list="{{ p.tags }}" as="tag" hint-placeholder-count="2">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#7B8492;border:1px solid #1C222B;border-radius:2px;padding:4px 8px">{{ tag }}</span>
+          </sc-for>
+        </div>
+      </article>
+    </sc-for>
+    <article style="border:1px dashed #242C37;border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:12px;justify-content:center">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5B9DF9">{{ t.nextKind }}</span>
+      <h3 style="font-size:1.06rem;font-weight:600;color:#F3F6F9;letter-spacing:-.012em;line-height:1.35">{{ t.nextTitle }}</h3>
+      <p style="font-size:.95rem;line-height:1.6;color:#98A1AE">{{ t.nextBlurb }}</p>
+    </article>
+  </div>
+</section>
+
+<section style="padding:clamp(3.5rem,7vw,5.5rem) 0 0">
+  <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#7B8492">{{ t.practiceEyebrow }}</span>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0;margin-top:26px;border-top:1px solid #1C222B">
+    <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
+      <div style="padding:24px 24px 26px 0;border-bottom:1px solid #1C222B">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#7B8492">{{ s.k }}</div>
+        <div style="font-size:1.55rem;font-weight:600;color:#F3F6F9;letter-spacing:-.02em;margin:12px 0 8px">{{ s.v }}</div>
+        <div style="font-size:.9rem;color:#7B8492">{{ s.n }}</div>
+      </div>
+    </sc-for>
+  </div>
+  <p style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5A6472;margin-top:16px">{{ t.statsNote }}</p>
+</section>
+
+<section id="contact" style="padding:clamp(3.5rem,7vw,5.5rem) 0 0">
+  <div style="border:1px solid #1C222B;border-radius:4px;padding:clamp(26px,4vw,40px);background:#0E1218">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#7B8492">{{ t.contactEyebrow }}</span>
+    <h2 style="font-size:clamp(1.4rem,3vw,1.75rem);font-weight:600;letter-spacing:-.018em;color:#F3F6F9;margin:12px 0 14px">{{ t.contactTitle }}</h2>
+    <p style="max-width:600px;font-size:1.02rem;line-height:1.65;color:#98A1AE;margin-bottom:30px">{{ t.contactLine }}</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px">
+      <a href="mailto:you@email.com" style="display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid #1C222B;border-radius:3px;padding:16px 18px;transition:border-color .18s,background .18s" style-hover="border-color:#263447;background:#101620">
+        <span><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#7B8492;margin-bottom:6px">Email</span><span style="font-size:.95rem;color:#F3F6F9;word-break:break-all">you@email.com</span></span>
+        <span style="font-family:'IBM Plex Mono',monospace;color:#5B9DF9;flex:none">↗</span>
+      </a>
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid #1C222B;border-radius:3px;padding:16px 18px;transition:border-color .18s,background .18s" style-hover="border-color:#263447;background:#101620">
+        <span><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#7B8492;margin-bottom:6px">GitHub</span><span style="font-size:.95rem;color:#F3F6F9;word-break:break-all">github.com/yourusername</span></span>
+        <span style="font-family:'IBM Plex Mono',monospace;color:#5B9DF9;flex:none">↗</span>
+      </a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid #1C222B;border-radius:3px;padding:16px 18px;transition:border-color .18s,background .18s" style-hover="border-color:#263447;background:#101620">
+        <span><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#7B8492;margin-bottom:6px">LinkedIn</span><span style="font-size:.95rem;color:#F3F6F9;word-break:break-all">linkedin.com/in/yourusername</span></span>
+        <span style="font-family:'IBM Plex Mono',monospace;color:#5B9DF9;flex:none">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+</sc-if>
+
+<sc-if value="{{ isProjects }}" hint-placeholder-val="{{ false }}">
+<section style="padding:clamp(3rem,7vw,5rem) 0 0">
+  <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#7B8492">{{ t.workEyebrow }}</span>
+  <h1 style="font-size:clamp(1.9rem,4.4vw,2.7rem);font-weight:600;letter-spacing:-.025em;color:#F3F6F9;margin:16px 0 18px">{{ t.projectsH1 }}</h1>
+  <p style="max-width:640px;font-size:1.05rem;line-height:1.6;color:#98A1AE">{{ t.projectsIntro }}</p>
+  <div style="margin-top:44px;border-top:1px solid #1C222B">
+    <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
+      <article style="display:flex;gap:26px;align-items:flex-start;padding:28px 0;border-bottom:1px solid #1C222B;flex-wrap:wrap">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5A6472;width:26px;flex:none;padding-top:4px">{{ p.n }}</span>
+        <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#7B8492">{{ p.kind }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5A6472">{{ p.meta }}</span>
+          </div>
+          <h2 style="font-size:1.25rem;font-weight:600;color:#F3F6F9;letter-spacing:-.016em">{{ p.title }}</h2>
+          <p style="max-width:560px;font-size:.98rem;line-height:1.65;color:#98A1AE">{{ p.blurb }}</p>
+          <p style="max-width:560px;font-size:.98rem;line-height:1.65;color:#98A1AE">{{ p.detail }}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:2px">
+            <sc-for list="{{ p.tags }}" as="tag" hint-placeholder-count="2">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#7B8492;border:1px solid #1C222B;border-radius:2px;padding:4px 8px">{{ tag }}</span>
+            </sc-for>
+          </div>
+        </div>
+        <div style="width:230px;height:144px;flex:none;border:1px dashed #242C37;border-radius:3px;display:grid;place-items:center;background:repeating-linear-gradient(45deg,#0F141B,#0F141B 5px,#111720 5px,#111720 10px)">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5A6472">{{ p.slot }}</span>
+        </div>
+      </article>
+    </sc-for>
+    <article style="display:flex;gap:26px;align-items:flex-start;padding:28px 0;border-bottom:1px solid #1C222B;flex-wrap:wrap">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5A6472;width:26px;flex:none;padding-top:4px">04</span>
+      <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:12px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5B9DF9">{{ t.nextKind }}</span>
+        <h2 style="font-size:1.25rem;font-weight:600;color:#F3F6F9;letter-spacing:-.016em">{{ t.nextTitle }}</h2>
+        <p style="max-width:560px;font-size:.98rem;line-height:1.65;color:#98A1AE">{{ t.nextBlurb }}</p>
+      </div>
+      <div style="width:230px;height:144px;flex:none;border:1px dashed #242C37;border-radius:3px;display:grid;place-items:center">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5A6472">{{ t.slotSoon }}</span>
+      </div>
+    </article>
+  </div>
+</section>
+</sc-if>
+
+<sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+<section style="padding:clamp(3rem,7vw,5rem) 0 0">
+  <div style="display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap">
+    <div style="flex:1 1 380px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#7B8492">{{ t.navAbout }}</span>
+      <h1 style="font-size:clamp(1.9rem,4.4vw,2.7rem);font-weight:600;letter-spacing:-.025em;color:#F3F6F9;margin:16px 0 22px">{{ t.aboutH1 }}</h1>
+      <p style="max-width:600px;font-size:1.05rem;line-height:1.7;color:#CDD5DE">{{ t.aboutP1 }}</p>
+      <p style="max-width:600px;font-size:1.05rem;line-height:1.7;color:#CDD5DE;margin-top:18px">{{ t.aboutP2 }}</p>
+      <p style="max-width:600px;font-size:1.05rem;line-height:1.7;color:#CDD5DE;margin-top:18px">{{ t.aboutP3 }}</p>
+    </div>
+    <div style="width:270px;flex:none;display:flex;flex-direction:column;gap:14px">
+      <div style="height:320px;border:1px dashed #242C37;border-radius:4px;display:grid;place-items:center;background:repeating-linear-gradient(45deg,#0F141B,#0F141B 5px,#111720 5px,#111720 10px)">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5A6472">{{ t.slotPortrait }}</span>
+      </div>
+      <div style="border:1px solid #1C222B;border-radius:4px;padding:18px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#7B8492;margin-bottom:10px">{{ t.eduK }}</div>
+        <div style="font-size:.98rem;color:#F3F6F9;line-height:1.45;margin-bottom:6px">{{ t.eduV }}</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#7B8492">{{ t.eduN }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:clamp(3rem,6vw,4.5rem) 0 0">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#7B8492">{{ t.skillsEyebrow }}</span>
+    <h2 style="font-size:clamp(1.3rem,2.6vw,1.6rem);font-weight:600;letter-spacing:-.018em;color:#F3F6F9;margin:12px 0 30px">{{ t.skillsTitle }}</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:44px">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5B9DF9;padding-bottom:12px;border-bottom:1px solid #1C222B">{{ t.trackDefend }}</div>
+        <sc-for list="{{ defendSkills }}" as="s" hint-placeholder-count="6">
+          <div style="display:flex;align-items:baseline;gap:14px;padding:14px 0;border-bottom:1px solid #151B23">
+            <div style="flex:1">
+              <div style="font-size:.98rem;color:#F3F6F9">{{ s.name }}</div>
+              <div style="font-size:.86rem;color:#7B8492;margin-top:3px">{{ s.note }}</div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#7B8492;white-space:nowrap">{{ s.level }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#7B8492;padding-bottom:12px;border-bottom:1px solid #1C222B">{{ t.trackBuild }}</div>
+        <sc-for list="{{ buildSkills }}" as="s" hint-placeholder-count="4">
+          <div style="display:flex;align-items:baseline;gap:14px;padding:14px 0;border-bottom:1px solid #151B23">
+            <div style="flex:1">
+              <div style="font-size:.98rem;color:#F3F6F9">{{ s.name }}</div>
+              <div style="font-size:.86rem;color:#7B8492;margin-top:3px">{{ s.note }}</div>
+            </div>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#7B8492;white-space:nowrap">{{ s.level }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+</sc-if>
+
+<footer style="margin-top:clamp(3.5rem,7vw,5.5rem);padding:26px 0 44px;border-top:1px solid #1C222B;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center">
+  <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5A6472;letter-spacing:.04em">{{ t.footer }}</span>
+  <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5A6472;letter-spacing:.04em">{{ t.footerRight }}</span>
+</footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;language&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;vi&quot;],&quot;default&quot;:&quot;vi&quot;,&quot;tsType&quot;:&quot;'en'|'vi'&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+const COPY = {
+  en: {
+    tagline: "/ blue team · in training",
+    navWork: "work", navAbout: "about", navContact: "contact", resume: "Résumé ↓",
+    eyebrow: "Cybersecurity · PTIT · Hanoi",
+    statement: "Training toward SOC analyst. I build the defensive fundamentals in labs — logs, detections, packet captures — and design and ship the interfaces on the other side of the screen.",
+    f1k: "Studying", f1v: "B.Sc. Cybersecurity, PTIT",
+    f2k: "Direction", f2v: "Blue team · detection & response",
+    f3k: "Availability", f3v: "Open to internships — [month year]",
+    workEyebrow: "Selected work", workTitle: "What I've built so far", allWork: "All work",
+    nextKind: "In progress", nextTitle: "First defensive write-up",
+    nextBlurb: "A Hack The Box machine documented properly: what the logs showed, the detection logic behind it, and what I would alert on in production.",
+    practiceEyebrow: "Practice & credentials",
+    statsNote: "Numbers here are live counts from my own accounts — replace the placeholders, never round up.",
+    contactEyebrow: "Contact", contactTitle: "Open to blue-team internships",
+    contactLine: "Looking for a SOC or security-operations internship. Happy to talk front-end and design work too — both live on this site for a reason.",
+    projectsH1: "Work", projectsIntro: "Three sites I designed and built, and the first security write-up I'm working through. Each one lists what it actually involved — no invented scope.",
+    aboutH1: "How I work", 
+    aboutP1: "I'm a cybersecurity student at the Posts and Telecommunications Institute of Technology (PTIT) in Hanoi, working toward a role in a Security Operations Center — triaging alerts, hunting threats, containing incidents before they spread.",
+    aboutP2: "Defensive work rewards the same instinct as interface work: understand the whole system, watch how it behaves under load, and respond deliberately instead of reflexively. That's why the web projects sit next to the security work here rather than on a separate site.",
+    aboutP3: "Right now that means Hack The Box machines in the evenings, a home lab I keep breaking on purpose, and writing up what I find so the reasoning is legible to someone else.",
+    eduK: "Education", eduV: "Posts and Telecommunications Institute of Technology", eduN: "B.Sc. Cybersecurity · [20XX – 20XX]",
+    skillsEyebrow: "Skills", skillsTitle: "Two tracks, stated honestly",
+    trackDefend: "Defensive · blue team", trackBuild: "Interface · web",
+    slotPortrait: "portrait", slotSoon: "coming soon",
+    footer: "Designed & built by [YOUR NAME]", footerRight: "Last updated [month year]"
+  },
+  vi: {
+    tagline: "/ blue team · đang đào tạo",
+    navWork: "dự án", navAbout: "giới thiệu", navContact: "liên hệ", resume: "CV ↓",
+    eyebrow: "An toàn thông tin · PTIT · Hà Nội",
+    statement: "Đang trên lộ trình trở thành chuyên viên SOC. Tôi xây nền tảng phòng thủ qua các bài lab — log, quy tắc phát hiện, bắt gói tin — và đồng thời thiết kế, lập trình giao diện ở phía bên kia màn hình.",
+    f1k: "Đang học", f1v: "Cử nhân An toàn thông tin, PTIT",
+    f2k: "Định hướng", f2v: "Blue team · phát hiện & phản ứng",
+    f3k: "Trạng thái", f3v: "Sẵn sàng thực tập — [tháng/năm]",
+    workEyebrow: "Dự án chọn lọc", workTitle: "Những gì tôi đã làm", allWork: "Tất cả",
+    nextKind: "Đang thực hiện", nextTitle: "Bài phân tích phòng thủ đầu tiên",
+    nextBlurb: "Một máy Hack The Box được ghi chép đầy đủ: log cho thấy điều gì, logic phát hiện đằng sau, và tôi sẽ đặt cảnh báo ở đâu nếu chạy thật.",
+    practiceEyebrow: "Thực hành & chứng chỉ",
+    statsNote: "Các con số ở đây lấy trực tiếp từ tài khoản của tôi — thay placeholder bằng số thật, không làm tròn lên.",
+    contactEyebrow: "Liên hệ", contactTitle: "Đang tìm cơ hội thực tập blue team",
+    contactLine: "Tôi đang tìm vị trí thực tập SOC hoặc vận hành an toàn thông tin. Cũng rất vui khi trao đổi về front-end và thiết kế — cả hai đều xuất hiện ở đây là có lý do.",
+    projectsH1: "Dự án", projectsIntro: "Ba website tôi tự thiết kế và lập trình, cùng bài phân tích bảo mật đầu tiên đang thực hiện. Mỗi mục ghi đúng phạm vi công việc thực tế.",
+    aboutH1: "Cách tôi làm việc",
+    aboutP1: "Tôi là sinh viên An toàn thông tin tại Học viện Công nghệ Bưu chính Viễn thông (PTIT), Hà Nội, hướng tới công việc trong Trung tâm Điều hành An ninh (SOC) — phân loại cảnh báo, truy tìm mối đe dọa, khoanh vùng sự cố trước khi nó lan rộng.",
+    aboutP2: "Công việc phòng thủ đòi hỏi đúng bản năng như làm giao diện: hiểu toàn bộ hệ thống, quan sát cách nó phản ứng khi chịu tải, và xử lý có chủ đích thay vì theo phản xạ. Đó là lý do các dự án web nằm cạnh phần bảo mật ở đây, chứ không tách ra một trang riêng.",
+    aboutP3: "Hiện tại điều đó nghĩa là làm máy Hack The Box vào buổi tối, duy trì một home lab và cố tình làm nó hỏng, rồi viết lại những gì tìm được sao cho người khác đọc là hiểu.",
+    eduK: "Học vấn", eduV: "Học viện Công nghệ Bưu chính Viễn thông", eduN: "Cử nhân An toàn thông tin · [20XX – 20XX]",
+    skillsEyebrow: "Kỹ năng", skillsTitle: "Hai hướng, khai báo trung thực",
+    trackDefend: "Phòng thủ · blue team", trackBuild: "Giao diện · web",
+    slotPortrait: "ảnh chân dung", slotSoon: "sắp có",
+    footer: "Thiết kế & lập trình bởi [YOUR NAME]", footerRight: "Cập nhật [tháng/năm]"
+  }
+};
+
+const DATA = {
+  en: {
+    projects: [
+      { n: "01", kind: "Web · design & build", meta: "[year]", title: "[Project 1] — [site name]",
+        blurb: "Designed and built end to end: [the problem it solved for whom].",
+        detail: "Responsive layout, semantic markup, no framework. [One decision you'd defend in an interview.]",
+        tags: ["HTML/CSS", "JavaScript", "Figma"], slot: "screenshot — desktop" },
+      { n: "02", kind: "Web · design & build", meta: "[year]", title: "[Project 2] — [site name]",
+        blurb: "Built for [who it was for] to [what it does].",
+        detail: "Visual identity, type scale and a small component set reused across pages. [What you'd change now.]",
+        tags: ["HTML/CSS", "Figma"], slot: "screenshot — mobile" },
+      { n: "03", kind: "Web · front-end", meta: "[year]", title: "[Project 3] — [site name]",
+        blurb: "[Short description of what it is.]",
+        detail: "[What broke, how you fixed it, what you learned.]",
+        tags: ["HTML/CSS", "JavaScript"], slot: "screenshot" }
+    ],
+    stats: [
+      { k: "Hack The Box", v: "[N] machines", n: "[path name] · [X]% complete" },
+      { k: "Certification track", v: "[Security+]", n: "Target [month year]" },
+      { k: "Home lab", v: "[N] VMs", n: "[what runs on it]" }
+    ],
+    defendSkills: [
+      { name: "Log analysis & security monitoring", note: "Windows event logs, Sysmon, syslog", level: "core" },
+      { name: "SIEM — Splunk, ELK", note: "search, dashboards, correlation", level: "learning" },
+      { name: "Alert triage & incident notes", note: "validation, escalation, documentation", level: "learning" },
+      { name: "Network & packet analysis", note: "Wireshark, tcpdump", level: "core" },
+      { name: "Threat detection · MITRE ATT&CK", note: "mapping techniques to detections", level: "learning" },
+      { name: "Linux & system hardening", note: "CLI, permissions, services, baselines", level: "core" }
+    ],
+    buildSkills: [
+      { name: "Front-end", note: "HTML, CSS, JavaScript", level: "core" },
+      { name: "UI design & prototyping", note: "Figma", level: "core" },
+      { name: "Responsive & accessible layouts", note: "semantic markup, keyboard, contrast", level: "core" },
+      { name: "Design systems", note: "type scale, spacing, components", level: "core" }
+    ]
+  },
+  vi: {
+    projects: [
+      { n: "01", kind: "Web · thiết kế & lập trình", meta: "[năm]", title: "[Dự án 1] — [tên site]",
+        blurb: "Tự thiết kế và lập trình từ đầu: [vấn đề đã giải quyết, cho ai].",
+        detail: "Layout responsive, markup semantic, không dùng framework. [Một quyết định bạn có thể bảo vệ khi phỏng vấn.]",
+        tags: ["HTML/CSS", "JavaScript", "Figma"], slot: "ảnh chụp — desktop" },
+      { n: "02", kind: "Web · thiết kế & lập trình", meta: "[năm]", title: "[Dự án 2] — [tên site]",
+        blurb: "Làm cho [ai] để [làm được gì].",
+        detail: "Bộ nhận diện, thang chữ và một nhóm component dùng lại giữa các trang. [Điều bạn sẽ sửa nếu làm lại.]",
+        tags: ["HTML/CSS", "Figma"], slot: "ảnh chụp — mobile" },
+      { n: "03", kind: "Web · front-end", meta: "[năm]", title: "[Dự án 3] — [tên site]",
+        blurb: "[Mô tả ngắn đây là gì.]",
+        detail: "[Đã gặp lỗi gì, sửa thế nào, học được gì.]",
+        tags: ["HTML/CSS", "JavaScript"], slot: "ảnh chụp" }
+    ],
+    stats: [
+      { k: "Hack The Box", v: "[N] máy", n: "[tên learning path] · [X]% hoàn thành" },
+      { k: "Chứng chỉ", v: "[Security+]", n: "Mục tiêu [tháng/năm]" },
+      { k: "Home lab", v: "[N] máy ảo", n: "[đang chạy gì trên đó]" }
+    ],
+    defendSkills: [
+      { name: "Phân tích log & giám sát an ninh", note: "Windows event log, Sysmon, syslog", level: "nền tảng" },
+      { name: "SIEM — Splunk, ELK", note: "truy vấn, dashboard, tương quan sự kiện", level: "đang học" },
+      { name: "Phân loại cảnh báo & ghi nhận sự cố", note: "xác thực, leo thang, tài liệu hóa", level: "đang học" },
+      { name: "Phân tích mạng & gói tin", note: "Wireshark, tcpdump", level: "nền tảng" },
+      { name: "Phát hiện mối đe dọa · MITRE ATT&CK", note: "gắn kỹ thuật với quy tắc phát hiện", level: "đang học" },
+      { name: "Linux & tăng cường hệ thống", note: "CLI, phân quyền, service, baseline", level: "nền tảng" }
+    ],
+    buildSkills: [
+      { name: "Front-end", note: "HTML, CSS, JavaScript", level: "nền tảng" },
+      { name: "Thiết kế & prototype giao diện", note: "Figma", level: "nền tảng" },
+      { name: "Layout responsive & accessible", note: "markup semantic, bàn phím, tương phản", level: "nền tảng" },
+      { name: "Design system", note: "thang chữ, khoảng cách, component", level: "nền tảng" }
+    ]
+  }
+};
+
+class Component extends DCLogic {
+  state = { lang: "en", view: "home" };
+
+  set(k, v) { this.setState({ [k]: v }); window.scrollTo(0, 0); }
+
+  renderVals() {
+    const lang = this.props.language ?? this.state.lang;
+    const view = this.state.view;
+    const active = "#F3F6F9", idle = "#7B8492";
+    return {
+      t: COPY[lang], ...DATA[lang],
+      isHome: view === "home", isProjects: view === "projects", isAbout: view === "about",
+      navWork: view === "projects" ? active : idle,
+      navAbout: view === "about" ? active : idle,
+      enInk: lang === "en" ? "#F3F6F9" : "#5A6472",
+      viInk: lang === "vi" ? "#F3F6F9" : "#5A6472",
+      enBg: lang === "en" ? "#1A2130" : "transparent",
+      viBg: lang === "vi" ? "#1A2130" : "transparent",
+      setEn: () => this.setState({ lang: "en" }),
+      setVi: () => this.setState({ lang: "vi" }),
+      goHome: () => this.set("view", "home"),
+      goProjects: () => this.set("view", "projects"),
+      goAbout: () => this.set("view", "about")
+    };
+  }
+}
+
+</script>
+</body>
+</html>
