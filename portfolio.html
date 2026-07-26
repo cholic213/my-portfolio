@@ -386,12 +386,12 @@ const DATA = {
 };
 
 class Component extends DCLogic {
-  state = { lang: "en", view: "home" };
+  state = { lang: null, view: "home" };
 
   set(k, v) { this.setState({ [k]: v }); window.scrollTo(0, 0); }
 
   renderVals() {
-    const lang = this.props.language ?? this.state.lang;
+    const lang = this.state.lang ?? this.props.language ?? "en";
     const view = this.state.view;
     const active = "#F3F6F9", idle = "#7B8492";
     return {
