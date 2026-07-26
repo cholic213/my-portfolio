@@ -14,12 +14,17 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:#0B0E13;color:#CDD5DE;font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;text-wrap:pretty}
-a{color:inherit;text-decoration:none}
+a{color:inherit;text-decoration:none;transition:color .22s cubic-bezier(.22,.61,.36,1)}
 a:hover{color:#F3F6F9}
 strong{font-weight:600;color:#F3F6F9}
 ::selection{background:rgba(91,157,249,.28);color:#F3F6F9}
 :focus-visible{outline:1.5px solid #5B9DF9;outline-offset:3px}
-button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;transition:color .22s cubic-bezier(.22,.61,.36,1),background .22s cubic-bezier(.22,.61,.36,1)}
+@keyframes pageIn0{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes pageIn1{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes imgReveal{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:scale(1)}}
+.reveal-img{animation:imgReveal .6s cubic-bezier(.22,.61,.36,1) both}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
 </style>
 </helmet>
 
@@ -39,9 +44,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <button onClick="{{ setEn }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;padding:5px 9px;color:{{ enInk }};background:{{ enBg }}">EN</button>
       <button onClick="{{ setVi }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;padding:5px 9px;color:{{ viInk }};background:{{ viBg }}">VI</button>
     </span>
-    <a href="#" style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#5B9DF9;border:1px solid #263447;border-radius:3px;padding:8px 13px;transition:border-color .18s,background .18s" style-hover="border-color:#5B9DF9;background:rgba(91,157,249,.07);color:#5B9DF9">{{ t.resume }}</a>
+    <a href="#" style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#5B9DF9;border:1px solid #263447;border-radius:3px;padding:8px 13px;transition:border-color .26s cubic-bezier(.22,.61,.36,1),background .26s cubic-bezier(.22,.61,.36,1),transform .26s cubic-bezier(.22,.61,.36,1)" style-hover="border-color:#5B9DF9;background:rgba(91,157,249,.07);color:#5B9DF9">{{ t.resume }}</a>
   </div>
 </nav>
+
+<div style="animation:{{ pageAnim }} .42s cubic-bezier(.22,.61,.36,1) both">
 
 <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
 <header style="padding:clamp(3.5rem,9vw,6.5rem) 0 0">
@@ -74,11 +81,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   </div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px">
     <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
-      <article style="border:1px solid #1C222B;border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:14px;background:#0E1218;transition:border-color .18s" style-hover="border-color:#263447">
+      <article style="border:1px solid #1C222B;border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:14px;background:#0E1218;transition:border-color .26s cubic-bezier(.22,.61,.36,1),transform .26s cubic-bezier(.22,.61,.36,1),box-shadow .26s cubic-bezier(.22,.61,.36,1)" style-hover="border-color:#263447;transform:translateY(-3px);box-shadow:0 10px 30px -12px rgba(0,0,0,.5)">
         <div style="position:relative;overflow:hidden;height:112px;border:1px dashed #242C37;border-radius:3px;display:grid;place-items:center;background:repeating-linear-gradient(45deg,#0F141B,#0F141B 5px,#111720 5px,#111720 10px)">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5A6472;letter-spacing:.04em">{{ p.slot }}</span>
           <sc-if value="{{ p.img }}" hint-placeholder-val="{{ false }}">
-            <img src="{{ p.img }}" alt="{{ p.title }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:3px">
+            <img src="{{ p.img }}" alt="{{ p.title }}" loading="lazy" class="reveal-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:3px">
           </sc-if>
         </div>
         <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
@@ -122,15 +129,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <h2 style="font-size:clamp(1.4rem,3vw,1.75rem);font-weight:600;letter-spacing:-.018em;color:#F3F6F9;margin:12px 0 14px">{{ t.contactTitle }}</h2>
     <p style="max-width:600px;font-size:1.02rem;line-height:1.65;color:#98A1AE;margin-bottom:30px">{{ t.contactLine }}</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px">
-      <a href="mailto:you@email.com" style="display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid #1C222B;border-radius:3px;padding:16px 18px;transition:border-color .18s,background .18s" style-hover="border-color:#263447;background:#101620">
+      <a href="mailto:you@email.com" style="display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid #1C222B;border-radius:3px;padding:16px 18px;transition:border-color .26s cubic-bezier(.22,.61,.36,1),background .26s cubic-bezier(.22,.61,.36,1),transform .26s cubic-bezier(.22,.61,.36,1)" style-hover="border-color:#263447;background:#101620;transform:translateY(-2px)">
         <span><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#7B8492;margin-bottom:6px">Email</span><span style="font-size:.95rem;color:#F3F6F9;word-break:break-all">you@email.com</span></span>
         <span style="font-family:'IBM Plex Mono',monospace;color:#5B9DF9;flex:none">↗</span>
       </a>
-      <a href="https://github.com/yourusername" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid #1C222B;border-radius:3px;padding:16px 18px;transition:border-color .18s,background .18s" style-hover="border-color:#263447;background:#101620">
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid #1C222B;border-radius:3px;padding:16px 18px;transition:border-color .26s cubic-bezier(.22,.61,.36,1),background .26s cubic-bezier(.22,.61,.36,1),transform .26s cubic-bezier(.22,.61,.36,1)" style-hover="border-color:#263447;background:#101620;transform:translateY(-2px)">
         <span><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#7B8492;margin-bottom:6px">GitHub</span><span style="font-size:.95rem;color:#F3F6F9;word-break:break-all">github.com/yourusername</span></span>
         <span style="font-family:'IBM Plex Mono',monospace;color:#5B9DF9;flex:none">↗</span>
       </a>
-      <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid #1C222B;border-radius:3px;padding:16px 18px;transition:border-color .18s,background .18s" style-hover="border-color:#263447;background:#101620">
+      <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid #1C222B;border-radius:3px;padding:16px 18px;transition:border-color .26s cubic-bezier(.22,.61,.36,1),background .26s cubic-bezier(.22,.61,.36,1),transform .26s cubic-bezier(.22,.61,.36,1)" style-hover="border-color:#263447;background:#101620;transform:translateY(-2px)">
         <span><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#7B8492;margin-bottom:6px">LinkedIn</span><span style="font-size:.95rem;color:#F3F6F9;word-break:break-all">linkedin.com/in/yourusername</span></span>
         <span style="font-family:'IBM Plex Mono',monospace;color:#5B9DF9;flex:none">↗</span>
       </a>
@@ -165,7 +172,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         <div style="position:relative;overflow:hidden;width:230px;height:144px;flex:none;border:1px dashed #242C37;border-radius:3px;display:grid;place-items:center;background:repeating-linear-gradient(45deg,#0F141B,#0F141B 5px,#111720 5px,#111720 10px)">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5A6472">{{ p.slot }}</span>
           <sc-if value="{{ p.img }}" hint-placeholder-val="{{ false }}">
-            <img src="{{ p.img }}" alt="{{ p.title }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:3px">
+            <img src="{{ p.img }}" alt="{{ p.title }}" loading="lazy" class="reveal-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:3px">
           </sc-if>
         </div>
       </article>
@@ -239,6 +246,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   </div>
 </section>
 </sc-if>
+
+</div>
 
 <footer style="margin-top:clamp(3.5rem,7vw,5.5rem);padding:26px 0 44px;border-top:1px solid #1C222B;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center">
   <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5A6472;letter-spacing:.04em">{{ t.footer }}</span>
@@ -386,9 +395,11 @@ const DATA = {
 };
 
 class Component extends DCLogic {
-  state = { lang: null, view: "home" };
+  state = { lang: null, view: "home", tick: 0 };
 
-  set(k, v) { this.setState({ [k]: v }); window.scrollTo(0, 0); }
+  bump(patch) { this.setState({ ...patch, tick: (this.state.tick || 0) + 1 }); }
+
+  set(k, v) { this.bump({ [k]: v }); window.scrollTo({ top: 0, behavior: "smooth" }); }
 
   renderVals() {
     const lang = this.state.lang ?? this.props.language ?? "en";
@@ -396,6 +407,7 @@ class Component extends DCLogic {
     const active = "#F3F6F9", idle = "#7B8492";
     return {
       t: COPY[lang], ...DATA[lang],
+      pageAnim: "pageIn" + ((this.state.tick || 0) % 2),
       isHome: view === "home", isProjects: view === "projects", isAbout: view === "about",
       navWork: view === "projects" ? active : idle,
       navAbout: view === "about" ? active : idle,
@@ -403,8 +415,8 @@ class Component extends DCLogic {
       viInk: lang === "vi" ? "#F3F6F9" : "#5A6472",
       enBg: lang === "en" ? "#1A2130" : "transparent",
       viBg: lang === "vi" ? "#1A2130" : "transparent",
-      setEn: () => this.setState({ lang: "en" }),
-      setVi: () => this.setState({ lang: "vi" }),
+      setEn: () => this.bump({ lang: "en" }),
+      setVi: () => this.bump({ lang: "vi" }),
       goHome: () => this.set("view", "home"),
       goProjects: () => this.set("view", "projects"),
       goAbout: () => this.set("view", "about")
