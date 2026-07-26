@@ -46,7 +46,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
 <header style="padding:clamp(3.5rem,9vw,6.5rem) 0 0">
   <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#7B8492">{{ t.eyebrow }}</span>
-  <h1 style="font-size:clamp(2.5rem,6.2vw,4rem);font-weight:600;letter-spacing:-.028em;line-height:1.05;color:#F3F6F9;margin:20px 0 22px">[YOUR NAME]</h1>
+  <h1 style="font-size:clamp(2.5rem,6.2vw,4rem);font-weight:600;letter-spacing:-.028em;line-height:1.05;color:#F3F6F9;margin:20px 0 22px">NGUYEN DUC ANH</h1>
   <p style="max-width:660px;font-size:clamp(1.08rem,2.1vw,1.28rem);line-height:1.55;color:#CDD5DE">{{ t.statement }}</p>
   <div style="display:flex;flex-wrap:wrap;gap:0;margin-top:44px;border-top:1px solid #1C222B;border-bottom:1px solid #1C222B">
     <div style="flex:1 1 200px;padding:18px 22px 18px 0;border-right:1px solid #1C222B">
@@ -75,8 +75,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px">
     <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
       <article style="border:1px solid #1C222B;border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:14px;background:#0E1218;transition:border-color .18s" style-hover="border-color:#263447">
-        <div style="height:112px;border:1px dashed #242C37;border-radius:3px;display:grid;place-items:center;background:repeating-linear-gradient(45deg,#0F141B,#0F141B 5px,#111720 5px,#111720 10px)">
+        <div style="position:relative;overflow:hidden;height:112px;border:1px dashed #242C37;border-radius:3px;display:grid;place-items:center;background:repeating-linear-gradient(45deg,#0F141B,#0F141B 5px,#111720 5px,#111720 10px)">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5A6472;letter-spacing:.04em">{{ p.slot }}</span>
+          <sc-if value="{{ p.img }}" hint-placeholder-val="{{ false }}">
+            <img src="{{ p.img }}" alt="{{ p.title }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:3px">
+          </sc-if>
         </div>
         <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#7B8492">{{ p.kind }}</span>
@@ -159,8 +162,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
             </sc-for>
           </div>
         </div>
-        <div style="width:230px;height:144px;flex:none;border:1px dashed #242C37;border-radius:3px;display:grid;place-items:center;background:repeating-linear-gradient(45deg,#0F141B,#0F141B 5px,#111720 5px,#111720 10px)">
+        <div style="position:relative;overflow:hidden;width:230px;height:144px;flex:none;border:1px dashed #242C37;border-radius:3px;display:grid;place-items:center;background:repeating-linear-gradient(45deg,#0F141B,#0F141B 5px,#111720 5px,#111720 10px)">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5A6472">{{ p.slot }}</span>
+          <sc-if value="{{ p.img }}" hint-placeholder-val="{{ false }}">
+            <img src="{{ p.img }}" alt="{{ p.title }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:3px">
+          </sc-if>
         </div>
       </article>
     </sc-for>
@@ -268,7 +274,7 @@ const COPY = {
     skillsEyebrow: "Skills", skillsTitle: "Two tracks, stated honestly",
     trackDefend: "Defensive · blue team", trackBuild: "Interface · web",
     slotPortrait: "portrait", slotSoon: "coming soon",
-    footer: "Designed & built by [YOUR NAME]", footerRight: "Last updated [month year]"
+    footer: "Designed & built by Nguyen Duc Anh", footerRight: "Last updated [month year]"
   },
   vi: {
     tagline: "/ blue team · đang đào tạo",
@@ -294,7 +300,7 @@ const COPY = {
     skillsEyebrow: "Kỹ năng", skillsTitle: "Hai hướng, khai báo trung thực",
     trackDefend: "Phòng thủ · blue team", trackBuild: "Giao diện · web",
     slotPortrait: "ảnh chân dung", slotSoon: "sắp có",
-    footer: "Thiết kế & lập trình bởi [YOUR NAME]", footerRight: "Cập nhật [tháng/năm]"
+    footer: "Thiết kế & lập trình bởi Nguyễn Đức Anh", footerRight: "Cập nhật [tháng/năm]"
   }
 };
 
@@ -304,19 +310,19 @@ const DATA = {
       { n: "01", kind: "Web · app · design & build", meta: "2025", title: "lotusOps — Airline Operations",
         blurb: "A flight-operations console: a role-based dashboard for managing flights, crew and live operational alerts.",
         detail: "TypeScript single-page app — authentication, sidebar routing, global search, notifications, modals and drawers, all hand-built with no UI framework. Trilingual (VI / EN / KO), light and dark themes, and a tightened Content-Security-Policy that locks scripts and data to the same origin.",
-        tags: ["TypeScript", "SPA", "CSS", "i18n"], slot: "lotusOps — dashboard" },
+        tags: ["TypeScript", "SPA", "CSS", "i18n"], slot: "lotusOps — dashboard", img: "" },
       { n: "02", kind: "Web · multi-page · design & build", meta: "2025", title: "Inkspire — Creative Agency",
         blurb: "An editorial marketing site for a creative agency — brand identity, storytelling and digital, wrapped in a print-inspired look.",
         detail: "Multi-page PHP site (home, work, story, services, contact) backed by a lightweight admin panel — login, posts, contacts, calendar and users. Luxury editorial styling: gold accents, serif display type, scroll-reveal animations and a font-cycling headline.",
-        tags: ["PHP", "HTML/CSS", "JavaScript", "Admin panel"], slot: "Inkspire — home" },
+        tags: ["PHP", "HTML/CSS", "JavaScript", "Admin panel"], slot: "Inkspire — home", img: "assets/inkspire.png" },
       { n: "03", kind: "Web · front-end", meta: "2025", title: "Linh Quang Tộc Đăng — Heritage Landing",
         blurb: "A long-scroll landing page adapting a 60-page print catalogue for a Vietnamese heritage ceramic-lamp maker.",
         detail: "Single-file HTML / CSS / JavaScript. Sticky navigation with scroll-spy, a reading-progress bar, IntersectionObserver reveals and lazy-loaded WebP imagery. Responsive down to mobile, with print and reduced-motion support built in.",
-        tags: ["HTML/CSS", "JavaScript", "Responsive"], slot: "Linh Quang — cover" },
+        tags: ["HTML/CSS", "JavaScript", "Responsive"], slot: "Linh Quang — cover", img: "assets/linh-quang.png" },
       { n: "04", kind: "Web · corporate · design & build", meta: "2025", title: "Jade Gentle Build — Industrial Real Estate",
         blurb: "A corporate site for an industrial-park real-estate developer — company profile, projects and news for business partners.",
         detail: "Multi-page marketing site with query-based page routing (home, about, projects, contact). A full-screen hero carousel, animated statistic counters, a services section, project detail pages and a news/events feed. Vietnamese-language and responsive throughout.",
-        tags: ["HTML/CSS", "JavaScript", "Multi-page", "Responsive"], slot: "Jade Gentle Build — hero" }
+        tags: ["HTML/CSS", "JavaScript", "Multi-page", "Responsive"], slot: "Jade Gentle Build — hero", img: "assets/jade-gentle-build.png" }
     ],
     stats: [
       { k: "Hack The Box", v: "[N] machines", n: "[path name] · [X]% complete" },
@@ -343,19 +349,19 @@ const DATA = {
       { n: "01", kind: "Web · ứng dụng · thiết kế & lập trình", meta: "2025", title: "lotusOps — Vận hành hàng không",
         blurb: "Bảng điều khiển vận hành bay: dashboard phân quyền để quản lý chuyến bay, phi hành đoàn và cảnh báo vận hành theo thời gian thực.",
         detail: "Ứng dụng SPA viết bằng TypeScript — đăng nhập, điều hướng sidebar, tìm kiếm toàn cục, thông báo, modal và drawer, tất cả tự dựng không dùng framework giao diện. Ba ngôn ngữ (VI / EN / KO), giao diện sáng và tối, cùng Content-Security-Policy siết chặt, khóa script và dữ liệu về cùng một nguồn.",
-        tags: ["TypeScript", "SPA", "CSS", "Đa ngôn ngữ"], slot: "lotusOps — dashboard" },
+        tags: ["TypeScript", "SPA", "CSS", "Đa ngôn ngữ"], slot: "lotusOps — dashboard", img: "" },
       { n: "02", kind: "Web · nhiều trang · thiết kế & lập trình", meta: "2025", title: "Inkspire — Agency sáng tạo",
         blurb: "Website giới thiệu cho một agency sáng tạo — nhận diện thương hiệu, kể chuyện và digital, trong một phong cách lấy cảm hứng từ ấn phẩm in.",
         detail: "Website PHP nhiều trang (trang chủ, dự án, câu chuyện, dịch vụ, liên hệ) cùng một trang quản trị gọn nhẹ — đăng nhập, bài viết, liên hệ, lịch và người dùng. Phong cách editorial sang trọng: điểm nhấn vàng, kiểu chữ serif, hiệu ứng scroll-reveal và tiêu đề đổi font liên tục.",
-        tags: ["PHP", "HTML/CSS", "JavaScript", "Trang quản trị"], slot: "Inkspire — trang chủ" },
+        tags: ["PHP", "HTML/CSS", "JavaScript", "Trang quản trị"], slot: "Inkspire — trang chủ", img: "assets/inkspire.png" },
       { n: "03", kind: "Web · front-end", meta: "2025", title: "Linh Quang Tộc Đăng — Landing di sản",
         blurb: "Landing page cuộn dài chuyển thể từ catalogue in 60 trang cho một thương hiệu chân đèn gốm di sản Việt.",
         detail: "HTML / CSS / JavaScript trong một file. Thanh điều hướng dính theo cuộn (scroll-spy), thanh tiến trình đọc, hiệu ứng hiện dần bằng IntersectionObserver và ảnh WebP tải lười. Responsive tới mobile, hỗ trợ in ấn và giảm chuyển động.",
-        tags: ["HTML/CSS", "JavaScript", "Responsive"], slot: "Linh Quang — bìa" },
+        tags: ["HTML/CSS", "JavaScript", "Responsive"], slot: "Linh Quang — bìa", img: "assets/linh-quang.png" },
       { n: "04", kind: "Web · doanh nghiệp · thiết kế & lập trình", meta: "2025", title: "Jade Gentle Build — Bất động sản khu công nghiệp",
         blurb: "Website doanh nghiệp cho một đơn vị phát triển bất động sản khu công nghiệp — hồ sơ công ty, dự án và tin tức cho đối tác.",
         detail: "Website giới thiệu nhiều trang với định tuyến theo tham số (trang chủ, giới thiệu, dự án, liên hệ). Hero carousel toàn màn hình, bộ đếm số liệu động, mục lĩnh vực hoạt động và các trang chi tiết dự án, cùng dòng tin tức/sự kiện. Tiếng Việt, responsive toàn bộ.",
-        tags: ["HTML/CSS", "JavaScript", "Nhiều trang", "Responsive"], slot: "Jade Gentle Build — hero" }
+        tags: ["HTML/CSS", "JavaScript", "Nhiều trang", "Responsive"], slot: "Jade Gentle Build — hero", img: "assets/jade-gentle-build.png" }
     ],
     stats: [
       { k: "Hack The Box", v: "[N] máy", n: "[tên learning path] · [X]% hoàn thành" },
