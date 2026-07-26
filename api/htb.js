@@ -40,7 +40,7 @@ module.exports = async (req, res) => {
     if (!userId) throw new Error("could_not_resolve_user_id");
 
     // 2) Fetch the public profile stats for that user.
-    const prof = await getJson(`${BASE}/profile/${userId}`);
+    const prof = await getJson(`${BASE}/user/profile/basic/${userId}`);
     const p = prof?.profile ?? prof ?? {};
 
     const num = (v) => (typeof v === "number" ? v : v != null && !isNaN(+v) ? +v : null);
