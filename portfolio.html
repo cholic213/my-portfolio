@@ -401,12 +401,38 @@ class Component extends DCLogic {
 
   set(k, v) { this.bump({ [k]: v }); window.scrollTo({ top: 0, behavior: "smooth" }); }
 
+  // Pull live Hack The Box numbers from our own serverless function once.
+  loadHTB() {
+    fetch("/api/htb")
+      .then((r) => r.json())
+      .then((d) => { if (d && d.ok && d.machines != null) this.setState({ htb: d }); })
+      .catch(() => {});
+  }
+
+  // Overlay the live HTB machine count onto the manual stats, per language.
+  liveStats(lang) {
+    const base = DATA[lang].stats;
+    const htb = this.state.htb;
+    if (!htb || htb.machines == null) return base;
+    const unit = lang === "vi" ? " máy" : " machines";
+    const note = htb.rank
+      ? htb.rank + (htb.points != null ? " · " + htb.points + (lang === "vi" ? " điểm" : " pts") : "")
+      : null;
+    return base.map((s) =>
+      /Hack The Box/i.test(s.k)
+        ? { ...s, v: htb.machines + unit, n: note || s.n }
+        : s
+    );
+  }
+
   renderVals() {
+    if (!this._htbStarted) { this._htbStarted = true; this.loadHTB(); }
     const lang = this.state.lang ?? this.props.language ?? "en";
     const view = this.state.view;
     const active = "#F3F6F9", idle = "#7B8492";
     return {
       t: COPY[lang], ...DATA[lang],
+      stats: this.liveStats(lang),
       pageAnim: "pageIn" + ((this.state.tick || 0) % 2),
       isHome: view === "home", isProjects: view === "projects", isAbout: view === "about",
       navWork: view === "projects" ? active : idle,
