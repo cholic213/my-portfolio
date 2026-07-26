@@ -334,7 +334,7 @@ const DATA = {
         tags: ["HTML/CSS", "JavaScript", "Multi-page", "Responsive"], slot: "Jade Gentle Build — hero", img: "assets/jade-gentle-build.png" }
     ],
     stats: [
-      { k: "Hack The Box", v: "6 machines", n: "Web penestration tester · 10% complete" },
+      { k: "Hack The Box", v: "6 machines", n: "Web penetration tester · 10% complete" },
       { k: "Certification track", v: "[Security+]", n: "Target [month year]" },
       { k: "Home lab", v: "[N] VMs", n: "[what runs on it]" }
     ],
@@ -373,7 +373,7 @@ const DATA = {
         tags: ["HTML/CSS", "JavaScript", "Nhiều trang", "Responsive"], slot: "Jade Gentle Build — hero", img: "assets/jade-gentle-build.png" }
     ],
     stats: [
-      { k: "Hack The Box", v: "6 máy", n: "Web penestration tester · 10% hoàn thành" },
+      { k: "Hack The Box", v: "6 máy", n: "Web penetration tester · 10% hoàn thành" },
       { k: "Chứng chỉ", v: "[Security+]", n: "Mục tiêu [tháng/năm]" },
       { k: "Home lab", v: "[N] máy ảo", n: "[đang chạy gì trên đó]" }
     ],
@@ -410,18 +410,14 @@ class Component extends DCLogic {
   }
 
   // Overlay the live HTB machine count onto the manual stats, per language.
+  // Only shows once there's at least one machine owned; rank is never shown.
   liveStats(lang) {
     const base = DATA[lang].stats;
     const htb = this.state.htb;
-    if (!htb || htb.machines == null) return base;
+    if (!htb || !htb.machines) return base;
     const unit = lang === "vi" ? " máy" : " machines";
-    const note = htb.rank
-      ? htb.rank + (htb.points != null ? " · " + htb.points + (lang === "vi" ? " điểm" : " pts") : "")
-      : null;
     return base.map((s) =>
-      /Hack The Box/i.test(s.k)
-        ? { ...s, v: htb.machines + unit, n: note || s.n }
-        : s
+      /Hack The Box/i.test(s.k) ? { ...s, v: htb.machines + unit } : s
     );
   }
 
