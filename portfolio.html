@@ -317,7 +317,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;transi
     <section>
       <h2 class="cvh">{{ t.practiceEyebrow }}</h2>
       <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
-        <div style="font-size:11px;line-height:1.4;margin:4px 0"><strong style="font-weight:600">{{ s.k }}:</strong> {{ s.v }} — {{ s.n }}</div>
+        <div style="font-size:11px;line-height:1.4;margin:4px 0"><strong style="font-weight:600">{{ s.k }}:</strong> {{ s.v }}<sc-if value="{{ s.n }}"> — {{ s.n }}</sc-if></div>
       </sc-for>
     </section>
   </div>
@@ -346,7 +346,7 @@ const COPY = {
     aboutP1: "I'm a cybersecurity student at the Posts and Telecommunications Institute of Technology (PTIT) in Hanoi, working toward a role in a Security Operations Center — triaging alerts, hunting threats, containing incidents before they spread.",
     aboutP2: "Defensive work rewards the same instinct as interface work: understand the whole system, watch how it behaves under load, and respond deliberately instead of reflexively. That's why the web projects sit next to the security work here rather than on a separate site.",
     aboutP3: "Right now that means Hack The Box machines in the evenings, a home lab I keep breaking on purpose, and writing up what I find so the reasoning is legible to someone else.",
-    eduK: "Education", eduV: "Posts and Telecommunications Institute of Technology", eduN: "B.Sc. Cybersecurity · [2025 – 2030]",
+    eduK: "Education", eduV: "Posts and Telecommunications Institute of Technology", eduN: "B.Sc. Cybersecurity · 2025 – 2030",
     skillsEyebrow: "Skills", skillsTitle: "Two tracks, stated honestly",
     trackDefend: "Defensive · blue team", trackBuild: "Interface · web",
     slotPortrait: "portrait", slotSoon: "coming soon",
@@ -372,7 +372,7 @@ const COPY = {
     aboutP1: "Tôi là sinh viên An toàn thông tin tại Học viện Công nghệ Bưu chính Viễn thông (PTIT), Hà Nội, hướng tới công việc trong Trung tâm Điều hành An ninh (SOC) — phân loại cảnh báo, truy tìm mối đe dọa, khoanh vùng sự cố trước khi nó lan rộng.",
     aboutP2: "Công việc phòng thủ đòi hỏi đúng bản năng như làm giao diện: hiểu toàn bộ hệ thống, quan sát cách nó phản ứng khi chịu tải, và xử lý có chủ đích thay vì theo phản xạ. Đó là lý do các dự án web nằm cạnh phần bảo mật ở đây, chứ không tách ra một trang riêng.",
     aboutP3: "Hiện tại điều đó nghĩa là làm máy Hack The Box vào buổi tối, duy trì một home lab và cố tình làm nó hỏng, rồi viết lại những gì tìm được sao cho người khác đọc là hiểu.",
-    eduK: "Học vấn", eduV: "Học viện Công nghệ Bưu chính Viễn thông", eduN: "Cử nhân An toàn thông tin · [2025 – 2030]",
+    eduK: "Học vấn", eduV: "Học viện Công nghệ Bưu chính Viễn thông", eduN: "Cử nhân An toàn thông tin · 2025 – 2030",
     skillsEyebrow: "Kỹ năng", skillsTitle: "Hai hướng, khai báo trung thực",
     trackDefend: "Phòng thủ · blue team", trackBuild: "Giao diện · web",
     slotPortrait: "ảnh chân dung", slotSoon: "sắp có",
@@ -402,7 +402,7 @@ const DATA = {
     ],
     stats: [
       { k: "Hack The Box", v: "6 machines", n: "Web penetration tester · 10% complete" },
-      { k: "Certification track", v: "N/A", n: "Target [month year]" },
+      { k: "Certification track", v: "N/A", n: "" },
       { k: "Home lab", v: "1 VMs", n: "Kali Linux" }
     ],
     defendSkills: [
@@ -441,7 +441,7 @@ const DATA = {
     ],
     stats: [
       { k: "Hack The Box", v: "6 máy", n: "Web penetration tester · 10% hoàn thành" },
-      { k: "Chứng chỉ", v: "N/A", n: "Mục tiêu [tháng/năm]" },
+      { k: "Chứng chỉ", v: "N/A", n: "" },
       { k: "Home lab", v: "1 máy ảo", n: "Kali linux" }
     ],
     defendSkills: [
