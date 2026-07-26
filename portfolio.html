@@ -27,7 +27,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 <nav style="display:flex;align-items:center;justify-content:space-between;height:74px;border-bottom:1px solid #1C222B">
   <button onClick="{{ goHome }}" style="display:flex;align-items:baseline;gap:10px">
-    <span style="font-size:15px;font-weight:600;letter-spacing:-.01em;color:#F3F6F9">[YOUR NAME]</span>
+    <span style="font-size:15px;font-weight:600;letter-spacing:-.01em;color:#F3F6F9">NGUYEN DUC ANH</span>
     <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#7B8492;letter-spacing:.02em">{{ t.tagline }}</span>
   </button>
   <div style="display:flex;align-items:center;gap:28px">
@@ -165,7 +165,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       </article>
     </sc-for>
     <article style="display:flex;gap:26px;align-items:flex-start;padding:28px 0;border-bottom:1px solid #1C222B;flex-wrap:wrap">
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5A6472;width:26px;flex:none;padding-top:4px">04</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5A6472;width:26px;flex:none;padding-top:4px">05</span>
       <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:12px">
         <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5B9DF9">{{ t.nextKind }}</span>
         <h2 style="font-size:1.25rem;font-weight:600;color:#F3F6F9;letter-spacing:-.016em">{{ t.nextTitle }}</h2>
@@ -259,7 +259,7 @@ const COPY = {
     statsNote: "Numbers here are live counts from my own accounts — replace the placeholders, never round up.",
     contactEyebrow: "Contact", contactTitle: "Open to blue-team internships",
     contactLine: "Looking for a SOC or security-operations internship. Happy to talk front-end and design work too — both live on this site for a reason.",
-    projectsH1: "Work", projectsIntro: "Three sites I designed and built, and the first security write-up I'm working through. Each one lists what it actually involved — no invented scope.",
+    projectsH1: "Work", projectsIntro: "Four sites I designed and built, and the first security write-up I'm working through. Each one lists what it actually involved — no invented scope.",
     aboutH1: "How I work", 
     aboutP1: "I'm a cybersecurity student at the Posts and Telecommunications Institute of Technology (PTIT) in Hanoi, working toward a role in a Security Operations Center — triaging alerts, hunting threats, containing incidents before they spread.",
     aboutP2: "Defensive work rewards the same instinct as interface work: understand the whole system, watch how it behaves under load, and respond deliberately instead of reflexively. That's why the web projects sit next to the security work here rather than on a separate site.",
@@ -285,7 +285,7 @@ const COPY = {
     statsNote: "Các con số ở đây lấy trực tiếp từ tài khoản của tôi — thay placeholder bằng số thật, không làm tròn lên.",
     contactEyebrow: "Liên hệ", contactTitle: "Đang tìm cơ hội thực tập blue team",
     contactLine: "Tôi đang tìm vị trí thực tập SOC hoặc vận hành an toàn thông tin. Cũng rất vui khi trao đổi về front-end và thiết kế — cả hai đều xuất hiện ở đây là có lý do.",
-    projectsH1: "Dự án", projectsIntro: "Ba website tôi tự thiết kế và lập trình, cùng bài phân tích bảo mật đầu tiên đang thực hiện. Mỗi mục ghi đúng phạm vi công việc thực tế.",
+    projectsH1: "Dự án", projectsIntro: "Bốn website tôi tự thiết kế và lập trình, cùng bài phân tích bảo mật đầu tiên đang thực hiện. Mỗi mục ghi đúng phạm vi công việc thực tế.",
     aboutH1: "Cách tôi làm việc",
     aboutP1: "Tôi là sinh viên An toàn thông tin tại Học viện Công nghệ Bưu chính Viễn thông (PTIT), Hà Nội, hướng tới công việc trong Trung tâm Điều hành An ninh (SOC) — phân loại cảnh báo, truy tìm mối đe dọa, khoanh vùng sự cố trước khi nó lan rộng.",
     aboutP2: "Công việc phòng thủ đòi hỏi đúng bản năng như làm giao diện: hiểu toàn bộ hệ thống, quan sát cách nó phản ứng khi chịu tải, và xử lý có chủ đích thay vì theo phản xạ. Đó là lý do các dự án web nằm cạnh phần bảo mật ở đây, chứ không tách ra một trang riêng.",
@@ -301,18 +301,22 @@ const COPY = {
 const DATA = {
   en: {
     projects: [
-      { n: "01", kind: "Web · design & build", meta: "[year]", title: "[Project 1] — [site name]",
-        blurb: "Designed and built end to end: [the problem it solved for whom].",
-        detail: "Responsive layout, semantic markup, no framework. [One decision you'd defend in an interview.]",
-        tags: ["HTML/CSS", "JavaScript", "Figma"], slot: "screenshot — desktop" },
-      { n: "02", kind: "Web · design & build", meta: "[year]", title: "[Project 2] — [site name]",
-        blurb: "Built for [who it was for] to [what it does].",
-        detail: "Visual identity, type scale and a small component set reused across pages. [What you'd change now.]",
-        tags: ["HTML/CSS", "Figma"], slot: "screenshot — mobile" },
-      { n: "03", kind: "Web · front-end", meta: "[year]", title: "[Project 3] — [site name]",
-        blurb: "[Short description of what it is.]",
-        detail: "[What broke, how you fixed it, what you learned.]",
-        tags: ["HTML/CSS", "JavaScript"], slot: "screenshot" }
+      { n: "01", kind: "Web · app · design & build", meta: "2025", title: "lotusOps — Airline Operations",
+        blurb: "A flight-operations console: a role-based dashboard for managing flights, crew and live operational alerts.",
+        detail: "TypeScript single-page app — authentication, sidebar routing, global search, notifications, modals and drawers, all hand-built with no UI framework. Trilingual (VI / EN / KO), light and dark themes, and a tightened Content-Security-Policy that locks scripts and data to the same origin.",
+        tags: ["TypeScript", "SPA", "CSS", "i18n"], slot: "lotusOps — dashboard" },
+      { n: "02", kind: "Web · multi-page · design & build", meta: "2025", title: "Inkspire — Creative Agency",
+        blurb: "An editorial marketing site for a creative agency — brand identity, storytelling and digital, wrapped in a print-inspired look.",
+        detail: "Multi-page PHP site (home, work, story, services, contact) backed by a lightweight admin panel — login, posts, contacts, calendar and users. Luxury editorial styling: gold accents, serif display type, scroll-reveal animations and a font-cycling headline.",
+        tags: ["PHP", "HTML/CSS", "JavaScript", "Admin panel"], slot: "Inkspire — home" },
+      { n: "03", kind: "Web · front-end", meta: "2025", title: "Linh Quang Tộc Đăng — Heritage Landing",
+        blurb: "A long-scroll landing page adapting a 60-page print catalogue for a Vietnamese heritage ceramic-lamp maker.",
+        detail: "Single-file HTML / CSS / JavaScript. Sticky navigation with scroll-spy, a reading-progress bar, IntersectionObserver reveals and lazy-loaded WebP imagery. Responsive down to mobile, with print and reduced-motion support built in.",
+        tags: ["HTML/CSS", "JavaScript", "Responsive"], slot: "Linh Quang — cover" },
+      { n: "04", kind: "Web · corporate · design & build", meta: "2025", title: "Jade Gentle Build — Industrial Real Estate",
+        blurb: "A corporate site for an industrial-park real-estate developer — company profile, projects and news for business partners.",
+        detail: "Multi-page marketing site with query-based page routing (home, about, projects, contact). A full-screen hero carousel, animated statistic counters, a services section, project detail pages and a news/events feed. Vietnamese-language and responsive throughout.",
+        tags: ["HTML/CSS", "JavaScript", "Multi-page", "Responsive"], slot: "Jade Gentle Build — hero" }
     ],
     stats: [
       { k: "Hack The Box", v: "[N] machines", n: "[path name] · [X]% complete" },
@@ -336,18 +340,22 @@ const DATA = {
   },
   vi: {
     projects: [
-      { n: "01", kind: "Web · thiết kế & lập trình", meta: "[năm]", title: "[Dự án 1] — [tên site]",
-        blurb: "Tự thiết kế và lập trình từ đầu: [vấn đề đã giải quyết, cho ai].",
-        detail: "Layout responsive, markup semantic, không dùng framework. [Một quyết định bạn có thể bảo vệ khi phỏng vấn.]",
-        tags: ["HTML/CSS", "JavaScript", "Figma"], slot: "ảnh chụp — desktop" },
-      { n: "02", kind: "Web · thiết kế & lập trình", meta: "[năm]", title: "[Dự án 2] — [tên site]",
-        blurb: "Làm cho [ai] để [làm được gì].",
-        detail: "Bộ nhận diện, thang chữ và một nhóm component dùng lại giữa các trang. [Điều bạn sẽ sửa nếu làm lại.]",
-        tags: ["HTML/CSS", "Figma"], slot: "ảnh chụp — mobile" },
-      { n: "03", kind: "Web · front-end", meta: "[năm]", title: "[Dự án 3] — [tên site]",
-        blurb: "[Mô tả ngắn đây là gì.]",
-        detail: "[Đã gặp lỗi gì, sửa thế nào, học được gì.]",
-        tags: ["HTML/CSS", "JavaScript"], slot: "ảnh chụp" }
+      { n: "01", kind: "Web · ứng dụng · thiết kế & lập trình", meta: "2025", title: "lotusOps — Vận hành hàng không",
+        blurb: "Bảng điều khiển vận hành bay: dashboard phân quyền để quản lý chuyến bay, phi hành đoàn và cảnh báo vận hành theo thời gian thực.",
+        detail: "Ứng dụng SPA viết bằng TypeScript — đăng nhập, điều hướng sidebar, tìm kiếm toàn cục, thông báo, modal và drawer, tất cả tự dựng không dùng framework giao diện. Ba ngôn ngữ (VI / EN / KO), giao diện sáng và tối, cùng Content-Security-Policy siết chặt, khóa script và dữ liệu về cùng một nguồn.",
+        tags: ["TypeScript", "SPA", "CSS", "Đa ngôn ngữ"], slot: "lotusOps — dashboard" },
+      { n: "02", kind: "Web · nhiều trang · thiết kế & lập trình", meta: "2025", title: "Inkspire — Agency sáng tạo",
+        blurb: "Website giới thiệu cho một agency sáng tạo — nhận diện thương hiệu, kể chuyện và digital, trong một phong cách lấy cảm hứng từ ấn phẩm in.",
+        detail: "Website PHP nhiều trang (trang chủ, dự án, câu chuyện, dịch vụ, liên hệ) cùng một trang quản trị gọn nhẹ — đăng nhập, bài viết, liên hệ, lịch và người dùng. Phong cách editorial sang trọng: điểm nhấn vàng, kiểu chữ serif, hiệu ứng scroll-reveal và tiêu đề đổi font liên tục.",
+        tags: ["PHP", "HTML/CSS", "JavaScript", "Trang quản trị"], slot: "Inkspire — trang chủ" },
+      { n: "03", kind: "Web · front-end", meta: "2025", title: "Linh Quang Tộc Đăng — Landing di sản",
+        blurb: "Landing page cuộn dài chuyển thể từ catalogue in 60 trang cho một thương hiệu chân đèn gốm di sản Việt.",
+        detail: "HTML / CSS / JavaScript trong một file. Thanh điều hướng dính theo cuộn (scroll-spy), thanh tiến trình đọc, hiệu ứng hiện dần bằng IntersectionObserver và ảnh WebP tải lười. Responsive tới mobile, hỗ trợ in ấn và giảm chuyển động.",
+        tags: ["HTML/CSS", "JavaScript", "Responsive"], slot: "Linh Quang — bìa" },
+      { n: "04", kind: "Web · doanh nghiệp · thiết kế & lập trình", meta: "2025", title: "Jade Gentle Build — Bất động sản khu công nghiệp",
+        blurb: "Website doanh nghiệp cho một đơn vị phát triển bất động sản khu công nghiệp — hồ sơ công ty, dự án và tin tức cho đối tác.",
+        detail: "Website giới thiệu nhiều trang với định tuyến theo tham số (trang chủ, giới thiệu, dự án, liên hệ). Hero carousel toàn màn hình, bộ đếm số liệu động, mục lĩnh vực hoạt động và các trang chi tiết dự án, cùng dòng tin tức/sự kiện. Tiếng Việt, responsive toàn bộ.",
+        tags: ["HTML/CSS", "JavaScript", "Nhiều trang", "Responsive"], slot: "Jade Gentle Build — hero" }
     ],
     stats: [
       { k: "Hack The Box", v: "[N] máy", n: "[tên learning path] · [X]% hoàn thành" },
