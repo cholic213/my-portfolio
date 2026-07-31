@@ -118,8 +118,8 @@
       vi: "Học viện Công nghệ Bưu chính Viễn thông" 
     },
     "edu.meta":        { 
-      en: "PTIT · B.Sc. in Information Security · 2025 – 2030", 
-      vi: "PTIT · Cử nhân An toàn thông tin · 2025 – 2030" 
+      en: "PTIT · B.Sc. and engineer in Information Security · 2025 – 2030", 
+      vi: "PTIT · Cử nhân và Kỹ sư An toàn thông tin · 2025 – 2030" 
     },
     "edu.p":           { 
       en: "Building core competencies in defensive security — computer networking fundamentals, OS internals, vulnerability analysis, and security operations protocols.",
