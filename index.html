@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script src="./i18n.js" defer></script>
 </head>
 <body>
 <x-dc>
@@ -94,6 +95,10 @@ strong{color:var(--text);font-weight:600}
 .btn-ghost{border:1px solid var(--line);color:var(--text-2)}
 .btn-ghost:hover{border-color:var(--accent);color:var(--text);background:var(--accent-soft)}
 .nav .btn-ghost{padding:8px 15px}
+.lang{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px;background:var(--surface)}
+.lang-btn{font-family:inherit;font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--text-3);background:transparent;border:0;cursor:pointer;padding:5px 11px;border-radius:999px;transition:color .18s ease,background .18s ease}
+.lang-btn:hover{color:var(--text)}
+.lang-btn[aria-pressed="true"]{background:var(--accent-soft);color:var(--text)}
 
 /* ---------- HERO ---------- */
 .hero{padding:clamp(3.5rem,10vw,7rem) 0 clamp(2.5rem,6vw,4rem)}
@@ -199,16 +204,20 @@ strong{color:var(--text);font-weight:600}
       <span class="mark" aria-hidden="true">NA</span>
       <span class="who">
         <span class="name">Nguyen Duc Anh</span>
-        <span class="role">Information Security · Blue Team</span>
+        <span class="role" data-i18n="nav.role">Information Security · Blue Team</span>
       </span>
     </a>
     <div class="nav-menu">
-      <a href="#about">About</a>
-      <a href="#capabilities">Capabilities</a>
-      <a href="#focus">Focus</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
-      <a href="/portfolio" class="btn btn-ghost">Portfolio <span aria-hidden="true">↗</span></a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#capabilities" data-i18n="nav.capabilities">Capabilities</a>
+      <a href="#focus" data-i18n="nav.focus">Focus</a>
+      <a href="#education" data-i18n="nav.education">Education</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <a href="/portfolio" class="btn btn-ghost" data-i18n="nav.portfolio">Portfolio <span aria-hidden="true">↗</span></a>
+      <div class="lang" role="group" aria-label="Language / Ngôn ngữ">
+        <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="true">EN</button>
+        <button type="button" class="lang-btn" data-lang-btn="vi" aria-pressed="false">VI</button>
+      </div>
     </div>
   </div>
 </nav>
@@ -216,13 +225,13 @@ strong{color:var(--text);font-weight:600}
 <header id="top" class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="badge"><i class="dot"></i>Available for SOC / blue-team internships</span>
+      <span class="badge"><i class="dot"></i><span data-i18n="hero.badge">Available for SOC / blue-team internships</span></span>
       <h1>Nguyen Duc Anh</h1>
-      <p class="tagline">Information Security<span class="sep">/</span>Blue Team<span class="sep">/</span>Aspiring SOC Analyst</p>
-      <p class="intro">I focus on <strong>defending systems</strong> and understanding threat landscapes — drawn to threat detection, incident response, and the rhythm of a <strong>Security Operations Center</strong>. Beyond security, I bridge technical analysis with clean <strong>UI/UX design</strong> and build intuitive digital interfaces.</p>
+      <p class="tagline" data-i18n="hero.tagline">Information Security<span class="sep">/</span>Blue Team<span class="sep">/</span>Aspiring SOC Analyst</p>
+      <p class="intro" data-i18n="hero.intro">I focus on <strong>defending systems</strong> and understanding threat landscapes — drawn to threat detection, incident response, and the rhythm of a <strong>Security Operations Center</strong>. Beyond security, I bridge technical analysis with clean <strong>UI/UX design</strong> and build intuitive digital interfaces.</p>
       <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">Get in touch</a>
-        <a href="/portfolio" class="btn btn-ghost">View portfolio <span aria-hidden="true">↗</span></a>
+        <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">Get in touch</a>
+        <a href="/portfolio" class="btn btn-ghost" data-i18n="hero.cta2">View portfolio <span aria-hidden="true">↗</span></a>
       </div>
     </div>
     <div class="portrait-wrap">
@@ -234,17 +243,17 @@ strong{color:var(--text);font-weight:600}
 <main>
 <section id="about" class="section">
   <div class="wrap">
-    <div class="section-head"><span class="eyebrow"><span class="num">01</span> About</span></div>
+    <div class="section-head"><span class="eyebrow"><span class="num">01</span> <span data-i18n="about.eyebrow">About</span></span></div>
     <div class="about-grid">
       <div class="about-copy">
-        <p>A cybersecurity student at the <strong>Posts and Telecommunications Institute of Technology (PTIT)</strong>, specializing in defensive security. My primary focus is <strong>SOC operations</strong> — driving alert triage, threat hunting, and swift incident containment to protect enterprise environments.</p>
-        <p>I approach security with a designer's mindset: understanding system architecture, monitoring behaviors, and responding with precision. Bridging <strong>system analysis</strong> with <strong>interface engineering</strong> forms the core of my technical approach.</p>
+        <p data-i18n="about.p1">A cybersecurity student at the <strong>Posts and Telecommunications Institute of Technology (PTIT)</strong>, specializing in defensive security. My primary focus is <strong>SOC operations</strong> — driving alert triage, threat hunting, and swift incident containment to protect enterprise environments.</p>
+        <p data-i18n="about.p2">I approach security with a designer's mindset: understanding system architecture, monitoring behaviors, and responding with precision. Bridging <strong>system analysis</strong> with <strong>interface engineering</strong> forms the core of my technical approach.</p>
       </div>
       <div class="facts">
-        <div class="fact"><span class="k">Discipline</span><span class="v">Defensive Security</span></div>
-        <div class="fact"><span class="k">Focus</span><span class="v">Blue Team / SOC</span></div>
-        <div class="fact"><span class="k">Education</span><span class="v">PTIT</span></div>
-        <div class="fact"><span class="k">Also</span><span class="v">UI/UX &amp; Front-end</span></div>
+        <div class="fact"><span class="k" data-i18n="about.k1">Discipline</span><span class="v" data-i18n="about.v1">Defensive Security</span></div>
+        <div class="fact"><span class="k" data-i18n="about.k2">Focus</span><span class="v">Blue Team / SOC</span></div>
+        <div class="fact"><span class="k" data-i18n="about.k3">Education</span><span class="v">PTIT</span></div>
+        <div class="fact"><span class="k" data-i18n="about.k4">Also</span><span class="v">UI/UX &amp; Front-end</span></div>
       </div>
     </div>
   </div>
@@ -253,33 +262,33 @@ strong{color:var(--text);font-weight:600}
 <section id="capabilities" class="section">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow"><span class="num">02</span> Capabilities</span>
-      <h2>Two sides of the screen</h2>
+      <span class="eyebrow"><span class="num">02</span> <span data-i18n="cap.eyebrow">Capabilities</span></span>
+      <h2 data-i18n="cap.h2">Two sides of the screen</h2>
     </div>
     <div class="cap-grid">
       <article class="card defend">
         <div class="rail"></div>
-        <span class="cap-label">01 · Defend</span>
+        <span class="cap-label" data-i18n="cap.defend.label">01 · Defend</span>
         <h3>Blue Team &amp; SOC</h3>
         <ul class="skills">
-          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name">SIEM monitoring &amp; log analysis</span><span class="tag developing">Developing</span></li>
-          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name">SIEM — Splunk / ELK Stack</span><span class="tag developing">Developing</span></li>
-          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name">Incident response &amp; triage</span><span class="tag developing">Developing</span></li>
-          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name">Network &amp; packet analysis — Wireshark</span><span class="tag developing">Developing</span></li>
-          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name">Threat detection — MITRE ATT&amp;CK</span><span class="tag developing">Developing</span></li>
-          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name">Linux &amp; system hardening</span><span class="tag developing">Developing</span></li>
+          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.d1">SIEM monitoring &amp; log analysis</span><span class="tag developing" data-i18n="tag.developing">Developing</span></li>
+          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name">SIEM — Splunk / ELK Stack</span><span class="tag developing" data-i18n="tag.developing">Developing</span></li>
+          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.d3">Incident response &amp; triage</span><span class="tag developing" data-i18n="tag.developing">Developing</span></li>
+          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.d4">Network &amp; packet analysis — Wireshark</span><span class="tag developing" data-i18n="tag.developing">Developing</span></li>
+          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.d5">Threat detection — MITRE ATT&amp;CK</span><span class="tag developing" data-i18n="tag.developing">Developing</span></li>
+          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.d6">Linux &amp; system hardening</span><span class="tag developing" data-i18n="tag.developing">Developing</span></li>
         </ul>
       </article>
       <article class="card build">
         <div class="rail"></div>
-        <span class="cap-label">02 · Build</span>
-        <h3>Interface &amp; Web</h3>
+        <span class="cap-label" data-i18n="cap.build.label">02 · Build</span>
+        <h3 data-i18n="cap.build.h3">Interface &amp; Web</h3>
         <ul class="skills">
-          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name">UI design &amp; prototyping — Figma</span><span class="tag proficient">Proficient</span></li>
-          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name">Front-end — HTML, CSS, JavaScript, PHP</span><span class="tag proficient">Proficient</span></li>
-          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name">Responsive, accessible layouts</span><span class="tag proficient">Proficient</span></li>
-          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name">Design system scaling</span><span class="tag proficient">Proficient</span></li>
-          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name">Web development workflow</span><span class="tag proficient">Proficient</span></li>
+          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.b1">UI design &amp; prototyping — Figma</span><span class="tag proficient" data-i18n="tag.proficient">Proficient</span></li>
+          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name">Front-end — HTML, CSS, JavaScript, PHP</span><span class="tag proficient" data-i18n="tag.proficient">Proficient</span></li>
+          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.b3">Responsive, accessible layouts</span><span class="tag proficient" data-i18n="tag.proficient">Proficient</span></li>
+          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.b4">Design system scaling</span><span class="tag proficient" data-i18n="tag.proficient">Proficient</span></li>
+          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.b5">Web development workflow</span><span class="tag proficient" data-i18n="tag.proficient">Proficient</span></li>
         </ul>
       </article>
     </div>
@@ -289,8 +298,8 @@ strong{color:var(--text);font-weight:600}
 <section id="focus" class="section">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow"><span class="num">03</span> Focus</span>
-      <h2>What I'm working toward</h2>
+      <span class="eyebrow"><span class="num">03</span> <span data-i18n="focus.eyebrow">Focus</span></span>
+      <h2 data-i18n="focus.h2">What I'm working toward</h2>
     </div>
     <div class="chips">
       <span class="chip"><i class="d"></i>detection-engineering</span>
@@ -308,7 +317,7 @@ strong{color:var(--text);font-weight:600}
 
 <section id="education" class="section">
   <div class="wrap">
-    <div class="section-head"><span class="eyebrow"><span class="num">04</span> Education</span></div>
+    <div class="section-head"><span class="eyebrow"><span class="num">04</span> <span data-i18n="edu.eyebrow">Education</span></span></div>
     <div class="edu">
       <div class="icon" aria-hidden="true">
         <svg viewBox="0 0 64 64" fill="none" style="width:26px;height:26px">
@@ -318,9 +327,9 @@ strong{color:var(--text);font-weight:600}
         </svg>
       </div>
       <div>
-        <h3>Posts and Telecommunications Institute of Technology</h3>
-        <div class="meta">PTIT · B.Sc. Cybersecurity · 2025 – 2030</div>
-        <p>Studying defensive security foundations — networks, operating systems, and the detection-and-response discipline that runs a SOC.</p>
+        <h3 data-i18n="edu.h3">Posts and Telecommunications Institute of Technology</h3>
+        <div class="meta" data-i18n="edu.meta">PTIT · B.Sc. Cybersecurity · 2025 – 2030</div>
+        <p data-i18n="edu.p">Studying defensive security foundations — networks, operating systems, and the detection-and-response discipline that runs a SOC.</p>
       </div>
     </div>
   </div>
@@ -329,10 +338,10 @@ strong{color:var(--text);font-weight:600}
 <section id="contact" class="section">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow"><span class="num">05</span> Contact</span>
-      <h2>Open a channel</h2>
+      <span class="eyebrow"><span class="num">05</span> <span data-i18n="contact.eyebrow">Contact</span></span>
+      <h2 data-i18n="contact.h2">Open a channel</h2>
     </div>
-    <p class="lead">Looking for a blue-team internship or SOC opportunity — and happy to talk design or front-end work too.</p>
+    <p class="lead" data-i18n="contact.lead">Looking for a blue-team internship or SOC opportunity — and happy to talk design or front-end work too.</p>
     <div class="contact-cards">
       <a href="mailto:ducanh.081107@gmail.com" class="ccard">
         <span><span class="lab">Email</span><span class="val">ducanh.081107@gmail.com</span></span>
@@ -353,8 +362,8 @@ strong{color:var(--text);font-weight:600}
 
 <footer class="foot">
   <div class="wrap foot-inner">
-    <span>© 2026 Nguyen Duc Anh — designed &amp; built by hand</span>
-    <a href="#top" class="top">Back to top ↑</a>
+    <span data-i18n="foot.credit">© 2026 Nguyen Duc Anh — designed &amp; built by hand</span>
+    <a href="#top" class="top" data-i18n="foot.top">Back to top ↑</a>
   </div>
 </footer>
 
