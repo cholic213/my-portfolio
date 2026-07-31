@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
-<link rel="icon" type="image/gif" href="/assets/favicon.gif">
-<link rel="apple-touch-icon" href="/assets/favicon-180.png">
+<link rel="icon" type="image/gif" href="./assets/favicon.gif">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nguyen Duc Anh — Portfolio & Case Studies</title>
@@ -32,11 +29,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;transi
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
 .cv-sheet{display:none}
 .cv-sheet strong{font-weight:600;color:#111}
-.cvh{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#111;border-bottom:1px solid #cbd2da;padding-bottom:4px;margin:0}
-.cvsub{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#5b6b7a;margin-bottom:5px}
+.cvh{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#111;border-bottom:1.5px solid #111;padding-bottom:3px;margin:14px 0 8px}
+.cvsub{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#444;margin-bottom:4px;font-weight:600}
+.cv-bullet{margin:0;padding-left:14px;list-style-type:disc}
+.cv-bullet li{font-size:10.5px;line-height:1.42;color:#222;margin-bottom:3px}
+.cv-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:8.5px;padding:1px 5px;background:#f0f3f6;border:1px solid #d0d7de;border-radius:2px;color:#333;margin-right:3px}
+
 @media print{
-  @page{size:A4;margin:13mm 14mm}
-  html,body{background:#fff !important;color:#111 !important}
+  @page{size:A4;margin:10mm 12mm}
+  html,body{background:#fff !important;color:#111 !important;font-size:13px !important}
   .site,.no-print{display:none !important}
   .cv-sheet{display:block !important}
   .cv-sheet section{break-inside:avoid}
@@ -273,58 +274,113 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;transi
 </div>
 
 <div class="cv-sheet">
-  <div style="font-family:'IBM Plex Sans',system-ui,sans-serif;color:#111;max-width:820px;margin:0 auto">
-    <div style="border-bottom:2px solid #111;padding-bottom:12px;margin-bottom:16px">
-      <h1 style="font-size:26px;font-weight:600;letter-spacing:-.02em;margin:0">NGUYEN DUC ANH</h1>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#444;margin-top:5px;text-transform:uppercase;letter-spacing:.08em">{{ t.eyebrow }} · {{ t.f2v }}</div>
-      <div style="font-size:11px;color:#333;margin-top:7px">ducanh.081107@gmail.com · github.com/cholic213 · linkedin.com/in/anh-nguyễn-đức-764a46234 · Hà Nội, Việt Nam</div>
-    </div>
-
-    <section style="margin-bottom:15px">
-      <h2 class="cvh">{{ t.aboutH1 }}</h2>
-      <p style="font-size:11.5px;line-height:1.5;margin:7px 0 0;color:#222">{{ t.statement }}</p>
-    </section>
-
-    <section style="margin-bottom:15px">
-      <h2 class="cvh">{{ t.eduK }}</h2>
-      <div style="font-size:12.5px;font-weight:600;margin-top:7px">{{ t.eduV }}</div>
-      <div style="font-size:11px;color:#555;margin-top:2px">{{ t.eduN }}</div>
-    </section>
-
-    <section style="margin-bottom:15px">
-      <h2 class="cvh">{{ t.skillsEyebrow }}</h2>
-      <div style="display:flex;gap:30px;margin-top:8px">
-        <div style="flex:1">
-          <div class="cvsub">{{ t.trackDefend }}</div>
-          <sc-for list="{{ defendSkills }}" as="s" hint-placeholder-count="6">
-            <div style="font-size:11px;line-height:1.4;margin:4px 0"><strong style="font-weight:600">{{ s.name }}</strong> — {{ s.note }} <span style="color:#888">· {{ s.level }}</span></div>
-          </sc-for>
+  <div style="font-family:'IBM Plex Sans',system-ui,sans-serif;color:#111;max-width:800px;margin:0 auto;line-height:1.35">
+    
+    <!-- HEADER -->
+    <header style="border-bottom:2px solid #111;padding-bottom:10px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:flex-end">
+      <div>
+        <h1 style="font-size:24px;font-weight:700;letter-spacing:-.02em;margin:0;color:#000">NGUYỄN ĐỨC ANH</h1>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#222;margin-top:3px;text-transform:uppercase;letter-spacing:.08em;font-weight:600">
+          INFORMATION SECURITY · BLUE TEAM / SOC ANALYST TRAINEE
         </div>
-        <div style="flex:1">
-          <div class="cvsub">{{ t.trackBuild }}</div>
-          <sc-for list="{{ buildSkills }}" as="s" hint-placeholder-count="4">
-            <div style="font-size:11px;line-height:1.4;margin:4px 0"><strong style="font-weight:600">{{ s.name }}</strong> — {{ s.note }} <span style="color:#888">· {{ s.level }}</span></div>
-          </sc-for>
+      </div>
+      <div style="text-align:right;font-size:10px;color:#333;line-height:1.45">
+        <div><strong>Email:</strong> ducanh.081107@gmail.com</div>
+        <div><strong>GitHub:</strong> github.com/cholic213</div>
+        <div><strong>LinkedIn:</strong> linkedin.com/in/anh-nguyễn-đức</div>
+        <div><strong>Địa điểm:</strong> Hà Nội, Việt Nam</div>
+      </div>
+    </header>
+
+    <!-- SUMMARY -->
+    <section>
+      <h2 class="cvh">{{ t.aboutH1 }}</h2>
+      <p style="font-size:10.5px;line-height:1.45;margin:4px 0 0;color:#222">
+        Sinh viên An toàn thông tin tại PTIT với định hướng chuyên sâu về <strong>Blue Team &amp; SOC Operations</strong>. Làm chủ kỹ năng đối soát log hệ thống (Sysmon, Windows Event Logs), phân loại cảnh báo (Alert Triage) và phân tích gói tin mạng (Wireshark). Kết hợp góc nhìn <strong>Secure Front-end Engineering</strong> để phân tích chuyên sâu an toàn ứng dụng Web (OWASP Top 10) và phát triển giao diện theo dõi an ninh trực quan.
+      </p>
+    </section>
+
+    <!-- EDUCATION & PRACTICE -->
+    <section>
+      <h2 class="cvh">HỌC VẤN &amp; THỰC HÀNH LAB</h2>
+      <div style="display:flex;justify-content:space-between;align-items:baseline">
+        <div>
+          <strong style="font-size:11px;color:#000">Học viện Công nghệ Bưu chính Viễn thông (PTIT)</strong>
+          <span style="font-size:10.5px;color:#444"> — Cử nhân An toàn thông tin</span>
+        </div>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#555">2025 – 2030</span>
+      </div>
+      <div style="font-size:10px;color:#333;margin-top:4px;display:flex;gap:16px;flex-wrap:wrap">
+        <span>• <strong>Hack The Box:</strong> Hoàn thành 6+ máy lab phòng thủ &amp; Web Penetration Testing</span>
+        <span>• <strong>Home Lab:</strong> Kali Linux, Sysmon Telemetry &amp; Windows Active Directory</span>
+        <span>• <strong>Lộ trình Chứng chỉ:</strong> Đang chuẩn bị CompTIA Security+ / Google Cybersecurity</span>
+      </div>
+    </section>
+
+    <!-- SKILLS MATRIX -->
+    <section>
+      <h2 class="cvh">NĂNG LỰC CHUYÊN MÔN &amp; KỸ NĂNG KỸ THUẬT</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 24px">
+        <div>
+          <div class="cvsub">AN NINH PHÒNG THỦ &amp; SOC OPERATIONS</div>
+          <ul class="cv-bullet">
+            <li><strong>Phân tích Log &amp; Telemetry:</strong> Windows Event Logs, Sysmon, Syslog, Event Correlation.</li>
+            <li><strong>Vận hành SIEM:</strong> Viết truy vấn tìm kiếm, tạo Dashboard theo dõi trên Splunk &amp; ELK Stack.</li>
+            <li><strong>Phân loại Cảnh báo:</strong> Alert Triage, xác minh True/False Positive, lập tài liệu sự cố.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="cvsub">BẢO MẬT WEB &amp; FRONT-END ENGINEERING</div>
+          <ul class="cv-bullet">
+            <li><strong>Kiến trúc Web &amp; Security:</strong> HTML5, CSS3, JavaScript (ES6+), TypeScript, PHP.</li>
+            <li><strong>Gia cố Bảo mật Web:</strong> Cấu hình Strict CSP, Input Sanitization, SQLi Defense, RBAC UI.</li>
+            <li><strong>Thiết kế UI/UX &amp; Optimization:</strong> Figma Prototyping, Chuẩn tiếp cận WCAG, Lazy Loading.</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section style="margin-bottom:15px">
-      <h2 class="cvh">{{ t.workEyebrow }}</h2>
-      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
-        <div style="margin-top:9px">
-          <div style="font-size:12px;font-weight:600">{{ p.title }} <span style="font-weight:400;color:#666;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.02em">· {{ p.kind }} · {{ p.meta }}</span></div>
-          <div style="font-size:11px;line-height:1.45;color:#333;margin-top:2px">{{ p.blurb }}</div>
+    <!-- FEATURED PROJECTS -->
+    <section>
+      <h2 class="cvh">DỰ ÁN &amp; BÀI PHÂN TÍCH TIÊU BIỂU</h2>
+      
+      <div style="margin-top:6px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <strong style="font-size:11px;color:#000">lotusOps — Bảng điều khiển Vận hành Hàng không</strong>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#555">2025</span>
         </div>
-      </sc-for>
+        <div style="font-size:9.5px;color:#444;margin-bottom:2px">Vanilla TypeScript · SPA Architecture · Strict CSP · Role-Based Access Control</div>
+        <ul class="cv-bullet">
+          <li>Phát triển ứng dụng Single Page Application (SPA) nguyên bản bằng TypeScript nhằm thu hẹp tối đa diện tích tấn công (Attack Surface).</li>
+          <li>Thiết lập chính sách Content Security Policy (CSP) nghiêm ngặt, cơ chế phân quyền RBAC chặt chẽ và giao diện đa ngôn ngữ (VI/EN/KO).</li>
+        </ul>
+      </div>
+
+      <div style="margin-top:6px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <strong style="font-size:11px;color:#000">Inkspire — Agency Sáng tạo &amp; Admin Dashboard</strong>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#555">2025</span>
+        </div>
+        <div style="font-size:9.5px;color:#444;margin-bottom:2px">PHP Backend · Input Sanitization · SQLi Defense · Session Security</div>
+        <ul class="cv-bullet">
+          <li>Xây dựng nền tảng PHP đa trang tích hợp trang quản trị nội bộ cho phép quản lý bài viết và người dùng.</li>
+          <li>Áp dụng các biện pháp gia cố an toàn ứng dụng Web: Chống SQL Injection bằng Prepared Statements, lọc dữ liệu đầu vào và quản lý Session an toàn.</li>
+        </ul>
+      </div>
+
+      <div style="margin-top:6px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <strong style="font-size:11px;color:#000">Linh Quang Tộc Đăng — Landing Page Di Sản Việt</strong>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#555">2025</span>
+        </div>
+        <div style="font-size:9.5px;color:#444;margin-bottom:2px">HTML5/CSS3 · Vanilla JavaScript · WCAG Compliance · Performance Optimization</div>
+        <ul class="cv-bullet">
+          <li>Số hóa tài liệu catalogue in 60 trang thành trải nghiệm web cuộn tương tác hiệu năng cao.</li>
+          <li>Tối ưu hóa tải trang với IntersectionObserver, định dạng WebP, tuân thủ chuẩn tiếp cận WCAG và hỗ trợ chế độ giảm chuyển động.</li>
+        </ul>
+      </div>
     </section>
 
-    <section>
-      <h2 class="cvh">{{ t.practiceEyebrow }}</h2>
-      <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
-        <div style="font-size:11px;line-height:1.4;margin:4px 0"><strong style="font-weight:600">{{ s.k }}:</strong> {{ s.v }}<sc-if value="{{ s.n }}"> — {{ s.n }}</sc-if></div>
-      </sc-for>
-    </section>
   </div>
 </div>
 
