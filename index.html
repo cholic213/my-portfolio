@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
   <link rel="icon" type="image/gif" href="./assets/favicon.gif">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-<script src="./i18n.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nguyen Duc Anh — Information Security & Blue Team</title>
+  <script src="./support.js"></script>
+  <script src="./i18n.js" defer></script>
 </head>
 <body>
 <x-dc>
@@ -57,7 +58,6 @@ strong{color:var(--text);font-weight:600}
 
 .wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 28px}
 
-/* eyebrow label */
 .eyebrow{
   display:inline-flex;align-items:center;gap:10px;
   font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
@@ -76,7 +76,7 @@ strong{color:var(--text);font-weight:600}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
 .brand{display:flex;align-items:center;gap:13px;color:var(--text)}
 .brand .mark{
-  width:34px;height:34px;flex:none;border-radius:9px;display:grid;place-items:center;
+  width:34px;height:34px;flex:none;border-radius:999px;display:grid;place-items:center;
   font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;letter-spacing:.02em;color:#fff;
   background:linear-gradient(150deg,rgba(107,165,255,.9),rgba(69,208,184,.85));
   box-shadow:0 6px 18px -8px rgba(107,165,255,.7);
@@ -151,7 +151,7 @@ strong{color:var(--text);font-weight:600}
 .skill .name{flex:1}
 .tag{flex:none;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:999px}
 .tag.proficient{color:var(--accent-2);background:rgba(69,208,184,.1);border:1px solid rgba(69,208,184,.22)}
-.tag.developing{color:var(--text-3);background:var(--bg-soft);border:1px solid var(--line)}
+.tag.developing{color:var(--accent);background:var(--accent-soft);border:1px solid rgba(107,165,255,.22)}
 
 /* ---------- FOCUS ---------- */
 .chips{display:flex;flex-wrap:wrap;gap:12px}
@@ -226,10 +226,10 @@ strong{color:var(--text);font-weight:600}
 <header id="top" class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="badge"><i class="dot"></i><span data-i18n="hero.badge">Available for SOC / blue-team internships</span></span>
+      <span class="badge"><i class="dot"></i><span data-i18n="hero.badge">Available for SOC / Blue Team Internships</span></span>
       <h1>Nguyen Duc Anh</h1>
       <p class="tagline" data-i18n="hero.tagline">Information Security<span class="sep">/</span>Blue Team<span class="sep">/</span>Aspiring SOC Analyst</p>
-      <p class="intro" data-i18n="hero.intro">I focus on <strong>defending systems</strong> and understanding threat landscapes — drawn to threat detection, incident response, and the rhythm of a <strong>Security Operations Center</strong>. Beyond security, I bridge technical analysis with clean <strong>UI/UX design</strong> and build intuitive digital interfaces.</p>
+      <p class="intro" data-i18n="hero.intro">Defending digital assets through log correlation, threat detection, and analytical rigor. Combining defensive security workflows with secure front-end architecture to build intuitive operational tooling.</p>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">Get in touch</a>
         <a href="/portfolio" class="btn btn-ghost" data-i18n="hero.cta2">View portfolio <span aria-hidden="true">↗</span></a>
@@ -247,14 +247,14 @@ strong{color:var(--text);font-weight:600}
     <div class="section-head"><span class="eyebrow"><span class="num">01</span> <span data-i18n="about.eyebrow">About</span></span></div>
     <div class="about-grid">
       <div class="about-copy">
-        <p data-i18n="about.p1">A cybersecurity student at the <strong>Posts and Telecommunications Institute of Technology (PTIT)</strong>, specializing in defensive security. My primary focus is <strong>SOC operations</strong> — driving alert triage, threat hunting, and swift incident containment to protect enterprise environments.</p>
-        <p data-i18n="about.p2">I approach security with a designer's mindset: understanding system architecture, monitoring behaviors, and responding with precision. Bridging <strong>system analysis</strong> with <strong>interface engineering</strong> forms the core of my technical approach.</p>
+        <p data-i18n="about.p1">Cybersecurity student at <strong>Posts and Telecommunications Institute of Technology (PTIT)</strong>, Hanoi. My core focus is <strong>SOC Operations &amp; Defensive Security</strong> — centered on alert triage, telemetry analysis, event correlation, and mapping adversary techniques to detection rules.</p>
+        <p data-i18n="about.p2">I approach security with a structural engineering perspective: understanding low-level OS mechanisms, inspecting web attack vectors, and visualizing telemetry clearly. Combining <strong>threat detection logic</strong> with <strong>secure interface engineering</strong> forms the backbone of my technical methodology.</p>
       </div>
       <div class="facts">
         <div class="fact"><span class="k" data-i18n="about.k1">Discipline</span><span class="v" data-i18n="about.v1">Defensive Security</span></div>
         <div class="fact"><span class="k" data-i18n="about.k2">Focus</span><span class="v">Blue Team / SOC</span></div>
-        <div class="fact"><span class="k" data-i18n="about.k3">Education</span><span class="v">PTIT</span></div>
-        <div class="fact"><span class="k" data-i18n="about.k4">Also</span><span class="v">UI/UX &amp; Front-end</span></div>
+        <div class="fact"><span class="k" data-i18n="about.k3">Education</span><span class="v">PTIT Hanoi</span></div>
+        <div class="fact"><span class="k" data-i18n="about.k4">Edge</span><span class="v">Secure Front-end</span></div>
       </div>
     </div>
   </div>
@@ -264,32 +264,31 @@ strong{color:var(--text);font-weight:600}
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow"><span class="num">02</span> <span data-i18n="cap.eyebrow">Capabilities</span></span>
-      <h2 data-i18n="cap.h2">Two sides of the screen</h2>
+      <h2 data-i18n="cap.h2">Two complementary skill sets</h2>
     </div>
     <div class="cap-grid">
       <article class="card defend">
         <div class="rail"></div>
         <span class="cap-label" data-i18n="cap.defend.label">01 · Defend</span>
-        <h3>Blue Team &amp; SOC</h3>
+        <h3>Blue Team &amp; SOC Operations</h3>
         <ul class="skills">
-          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.d1">SIEM monitoring &amp; log analysis</span><span class="tag developing" data-i18n="tag.developing">Developing</span></li>
-          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name">SIEM — Splunk / ELK Stack</span><span class="tag developing" data-i18n="tag.developing">Developing</span></li>
-          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.d3">Incident response &amp; triage</span><span class="tag developing" data-i18n="tag.developing">Developing</span></li>
-          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.d4">Network &amp; packet analysis — Wireshark</span><span class="tag developing" data-i18n="tag.developing">Developing</span></li>
-          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.d5">Threat detection — MITRE ATT&amp;CK</span><span class="tag developing" data-i18n="tag.developing">Developing</span></li>
-          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.d6">Linux &amp; system hardening</span><span class="tag developing" data-i18n="tag.developing">Developing</span></li>
+          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.d1">Log Analysis &amp; Telemetry — Windows Event Logs, Sysmon, Syslog</span><span class="tag proficient" data-i18n="tag.proficient">Core</span></li>
+          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.d2">SIEM Querying &amp; Monitoring — Splunk, ELK Stack</span><span class="tag developing" data-i18n="tag.developing">Active Learning</span></li>
+          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.d3">Alert Triage &amp; Incident Verification</span><span class="tag developing" data-i18n="tag.developing">Active Learning</span></li>
+          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.d4">Network &amp; Packet Forensics — Wireshark, tcpdump</span><span class="tag proficient" data-i18n="tag.proficient">Core</span></li>
+          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.d5">Threat Mapping &amp; Detection — MITRE ATT&amp;CK Framework</span><span class="tag developing" data-i18n="tag.developing">Active Learning</span></li>
+          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.d6">OS Hardening &amp; Baseline Configuration — Linux &amp; Windows</span><span class="tag developing" data-i18n="tag.developing">Active Learning</span></li>
         </ul>
       </article>
       <article class="card build">
         <div class="rail"></div>
         <span class="cap-label" data-i18n="cap.build.label">02 · Build</span>
-        <h3 data-i18n="cap.build.h3">Interface &amp; Web</h3>
+        <h3 data-i18n="cap.build.h3">Secure Web &amp; Interface Engineering</h3>
         <ul class="skills">
-          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.b1">UI design &amp; prototyping — Figma</span><span class="tag proficient" data-i18n="tag.proficient">Proficient</span></li>
-          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name">Front-end — HTML, CSS, JavaScript, PHP</span><span class="tag proficient" data-i18n="tag.proficient">Proficient</span></li>
-          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.b3">Responsive, accessible layouts</span><span class="tag proficient" data-i18n="tag.proficient">Proficient</span></li>
-          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.b4">Design system scaling</span><span class="tag proficient" data-i18n="tag.proficient">Proficient</span></li>
-          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.b5">Web development workflow</span><span class="tag proficient" data-i18n="tag.proficient">Proficient</span></li>
+          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.b1">Front-end Architecture — HTML5, CSS3, JavaScript (ES6+), TypeScript</span><span class="tag proficient" data-i18n="tag.proficient">Core</span></li>
+          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.b2">UI/UX &amp; Dashboard Prototyping — Figma, Design Systems</span><span class="tag proficient" data-i18n="tag.proficient">Core</span></li>
+          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.b3">Web App Security — CSP, Input Sanitization, RBAC UI</span><span class="tag proficient" data-i18n="tag.proficient">Core</span></li>
+          <li class="skill"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="name" data-i18n="s.b4">Performance Optimization &amp; WCAG Accessibility</span><span class="tag proficient" data-i18n="tag.proficient">Core</span></li>
         </ul>
       </article>
     </div>
@@ -300,18 +299,18 @@ strong{color:var(--text);font-weight:600}
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow"><span class="num">03</span> <span data-i18n="focus.eyebrow">Focus</span></span>
-      <h2 data-i18n="focus.h2">What I'm working toward</h2>
+      <h2 data-i18n="focus.h2">Technical Competencies &amp; Domains</h2>
     </div>
     <div class="chips">
+      <span class="chip"><i class="d"></i>log-triage</span>
+      <span class="chip"><i class="d"></i>sysmon-analysis</span>
       <span class="chip"><i class="d"></i>detection-engineering</span>
-      <span class="chip"><i class="d"></i>log-analysis</span>
       <span class="chip"><i class="d"></i>incident-response</span>
-      <span class="chip"><i class="d"></i>threat-hunting</span>
-      <span class="chip"><i class="d"></i>SIEM</span>
-      <span class="chip"><i class="d"></i>network-monitoring</span>
-      <span class="chip"><i class="d"></i>system-hardening</span>
+      <span class="chip"><i class="d"></i>wireshark-pcap</span>
+      <span class="chip"><i class="d"></i>SIEM-splunk-elk</span>
       <span class="chip"><i class="d"></i>MITRE-ATT&amp;CK</span>
-      <span class="chip"><i class="d"></i>blue-team-labs</span>
+      <span class="chip"><i class="d"></i>system-hardening</span>
+      <span class="chip"><i class="d"></i>secure-frontend-dev</span>
     </div>
   </div>
 </section>
@@ -329,8 +328,8 @@ strong{color:var(--text);font-weight:600}
       </div>
       <div>
         <h3 data-i18n="edu.h3">Posts and Telecommunications Institute of Technology</h3>
-        <div class="meta" data-i18n="edu.meta">PTIT · B.Sc. Cybersecurity · 2025 – 2030</div>
-        <p data-i18n="edu.p">Studying defensive security foundations — networks, operating systems, and the detection-and-response discipline that runs a SOC.</p>
+        <div class="meta" data-i18n="edu.meta">PTIT · B.Sc. in Information Security · 2025 – 2030</div>
+        <p data-i18n="edu.p">Building core competencies in defensive security — computer networking fundamentals, OS internals, vulnerability analysis, and security operations protocols.</p>
       </div>
     </div>
   </div>
@@ -340,9 +339,9 @@ strong{color:var(--text);font-weight:600}
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow"><span class="num">05</span> <span data-i18n="contact.eyebrow">Contact</span></span>
-      <h2 data-i18n="contact.h2">Open a channel</h2>
+      <h2 data-i18n="contact.h2">Get in touch</h2>
     </div>
-    <p class="lead" data-i18n="contact.lead">Looking for a blue-team internship or SOC opportunity — and happy to talk design or front-end work too.</p>
+    <p class="lead" data-i18n="contact.lead">Open for SOC / Blue Team Internship opportunities. Always eager to connect regarding log triage, detection logic, or secure web architecture.</p>
     <div class="contact-cards">
       <a href="mailto:ducanh.081107@gmail.com" class="ccard">
         <span><span class="lab">Email</span><span class="val">ducanh.081107@gmail.com</span></span>
@@ -353,7 +352,7 @@ strong{color:var(--text);font-weight:600}
         <span class="arrow" aria-hidden="true">↗</span>
       </a>
       <a href="https://www.linkedin.com/in/anh-nguy%E1%BB%85n-%C4%91%E1%BB%A9c-764a46234/" target="_blank" rel="noopener" class="ccard">
-        <span><span class="lab">LinkedIn</span><span class="val">linkedin.com/in/anh-nguyễn-đức</span></span>
+        <span><span class="lab">LinkedIn</span><span class="val">linkedin.com/in/anh-nguyễn-đức-764a46234</span></span>
         <span class="arrow" aria-hidden="true">↗</span>
       </a>
     </div>
@@ -363,7 +362,7 @@ strong{color:var(--text);font-weight:600}
 
 <footer class="foot">
   <div class="wrap foot-inner">
-    <span data-i18n="foot.credit">© 2026 Nguyen Duc Anh — designed &amp; built by hand</span>
+    <span data-i18n="foot.credit">© 2026 Nguyen Duc Anh — Designed &amp; Engineered by Hand</span>
     <a href="#top" class="top" data-i18n="foot.top">Back to top ↑</a>
   </div>
 </footer>
