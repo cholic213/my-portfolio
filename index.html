@@ -100,6 +100,13 @@ strong{color:var(--text);font-weight:600}
 .lang-btn{font-family:inherit;font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--text-3);background:transparent;border:0;cursor:pointer;padding:5px 11px;border-radius:999px;transition:color .18s ease,background .18s ease}
 .lang-btn:hover{color:var(--text)}
 .lang-btn[aria-pressed="true"]{background:var(--accent-soft);color:var(--text)}
+.nav-toggle{display:none;align-items:center;justify-content:center;width:42px;height:42px;flex:none;border:1px solid var(--line);border-radius:10px;background:var(--surface);cursor:pointer;padding:0}
+.nav-toggle:hover{border-color:var(--accent)}
+.nav-toggle .bars{display:flex;flex-direction:column;gap:5px}
+.nav-toggle .bars span{display:block;width:20px;height:2px;border-radius:2px;background:var(--text-2);transition:transform .26s ease,opacity .2s ease}
+.nav.open .nav-toggle .bars span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav.open .nav-toggle .bars span:nth-child(2){opacity:0}
+.nav.open .nav-toggle .bars span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
 /* ---------- HERO ---------- */
 .hero{padding:clamp(3.5rem,10vw,7rem) 0 clamp(2.5rem,6vw,4rem)}
@@ -191,10 +198,28 @@ strong{color:var(--text);font-weight:600}
   .portrait-wrap{grid-row:1;max-width:260px;margin-bottom:6px}
   .about-grid{grid-template-columns:1fr}
   .cap-grid{grid-template-columns:1fr}
+  /* nav becomes a hamburger dropdown */
+  .nav-toggle{display:flex}
+  .nav-menu{
+    position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:0;
+    background:var(--bg-soft);border-bottom:1px solid var(--line);
+    padding:8px 22px 20px;
+    box-shadow:0 26px 44px -26px rgba(0,0,0,.9);
+    display:none;
+  }
+  .nav.open .nav-menu{display:flex}
+  .nav-menu a{font-size:15px;color:var(--text-2);padding:14px 2px;border-bottom:1px solid var(--line-soft)}
+  .nav-menu a:hover{color:var(--text)}
+  .nav-menu a.btn-ghost{margin-top:14px;justify-content:center;border-bottom:0}
+  .nav .btn-ghost{padding:13px 15px}
+  .lang{margin-top:14px;align-self:flex-start}
 }
 @media(max-width:680px){
-  .nav-menu a:not(.btn){display:none}
   .brand .role{display:none}
+}
+@media(max-width:380px){
+  .wrap{padding:0 18px}
 }
 </style>
 </helmet>
@@ -208,7 +233,10 @@ strong{color:var(--text);font-weight:600}
         <span class="role" data-i18n="nav.role">Information Security · Blue Team</span>
       </span>
     </a>
-    <div class="nav-menu">
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+      <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+    <div class="nav-menu" id="nav-menu">
       <a href="#about" data-i18n="nav.about">About</a>
       <a href="#capabilities" data-i18n="nav.capabilities">Capabilities</a>
       <a href="#focus" data-i18n="nav.focus">Focus</a>

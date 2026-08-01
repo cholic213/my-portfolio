@@ -173,7 +173,23 @@
       })(btns[i]);
     }
     apply(detect());
+    wireNav();
     return true;
+  }
+
+  function wireNav() {
+    var nav = document.querySelector(".nav");
+    var toggle = document.querySelector(".nav-toggle");
+    if (!nav || !toggle || toggle.__wired) return;
+    toggle.__wired = true;
+    function close() { nav.classList.remove("open"); toggle.setAttribute("aria-expanded", "false"); }
+    toggle.addEventListener("click", function () {
+      var open = nav.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    var links = nav.querySelectorAll(".nav-menu a");
+    for (var i = 0; i < links.length; i++) links[i].addEventListener("click", close);
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
   }
 
   var tries = 0;
