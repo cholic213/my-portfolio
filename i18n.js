@@ -134,8 +134,8 @@
     },
 
     "foot.credit":     { 
-      en: "© 2026 Nguyen Duc Anh — Designed & Engineered by Hand", 
-      vi: "© 2026 Nguyễn Đức Anh — Thiết kế & Lập trình Thủ công" 
+      en: "© 2026 Nguyen Duc Anh — Designed by Duc Anh", 
+      vi: "© 2026 Nguyễn Đức Anh — Thiết kế bởi Đức Anh" 
     },
     "foot.top":        { en: "Back to top ↑", vi: "Lên đầu trang ↑" }
   };
